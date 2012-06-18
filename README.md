@@ -13,3 +13,5 @@ This is a native iOS app with similar functionality. Once you've got a map with 
 Then, just build & run the app and explore your picks! 
 
 ![](https://github.com/mapbox/weekend-picks-template-ios/raw/master/screenshot.png)
+
+Quick demo video: https://dl.dropbox.com/u/575564/picksvid.mov
