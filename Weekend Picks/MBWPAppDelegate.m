@@ -12,7 +12,7 @@
 
 @implementation MBWPAppDelegate
 
-@synthesize window = _window;
+@synthesize window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

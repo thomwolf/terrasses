@@ -10,6 +10,6 @@
 
 @interface MBWPAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property (strong) UIWindow *window;
 
 @end
