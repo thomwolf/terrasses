@@ -2,7 +2,7 @@
 
 This is the native iOS app to compliment the MapBox markers example: 
 
- * Site: http://mapbox.com/weekend-picks-template/
+ * Site: http://mapbox.com/map-sites/weekend-picks/
  * Repo: https://github.com/mapbox/weekend-picks-template
 
 This is a native iOS app with similar functionality. Once you've got a map with markers on it, just configure the following in `MBWPViewController.m`: 
