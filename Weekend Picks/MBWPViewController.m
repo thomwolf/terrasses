@@ -72,8 +72,23 @@
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^(void)
     {
-        [mapView zoomWithLatitudeLongitudeBoundsSouthWest:CLLocationCoordinate2DMake(38.838257, -77.100205)
-                                                northEast:CLLocationCoordinate2DMake(38.962018, -76.989578) 
+        float degreeRadius = 5000.f / 110000.f; // (5000m / 110km per degree latitude)
+        
+        CLLocationCoordinate2D centerCoordinate = [((RMMapBoxSource *)self.mapView.tileSource) centerCoordinate];
+        
+        RMSphericalTrapezium zoomBounds = {
+            .southWest = {
+                .latitude  = centerCoordinate.latitude  - degreeRadius,
+                .longitude = centerCoordinate.longitude - degreeRadius
+            },
+            .northEast = {
+                .latitude  = centerCoordinate.latitude  + degreeRadius,
+                .longitude = centerCoordinate.longitude + degreeRadius
+            }
+        };
+        
+        [mapView zoomWithLatitudeLongitudeBoundsSouthWest:zoomBounds.southWest
+                                                northEast:zoomBounds.northEast 
                                                  animated:YES];
     });
 }
