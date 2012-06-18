@@ -10,7 +10,7 @@
 
 @interface MBWPDetailViewController : UIViewController <UIWebViewDelegate>
 
-@property (strong) NSString *detailTitle;
-@property (strong) NSString *detailDescription;
+@property (strong, nonatomic) NSString *detailTitle;
+@property (strong, nonatomic) NSString *detailDescription;
 
 @end

@@ -21,6 +21,6 @@
 @interface MBWPSearchViewController : UITableViewController
 
 @property (weak) id <MBWPSearchDelegate>delegate;
-@property (strong) NSArray *filterTypes;
+@property (strong, nonatomic) NSArray *filterTypes;
 
 @end
