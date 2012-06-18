@@ -71,8 +71,21 @@
     
     cell.textLabel.text  = [[[[self.filterTypes objectAtIndex:indexPath.row] objectForKey:@"marker-symbol"] stringByReplacingOccurrencesOfString:@"-" withString:@" "] capitalizedString];
     
-    cell.imageView.image = [[self.filterTypes objectAtIndex:indexPath.row] objectForKey:@"image"];
-    cell.imageView.contentMode = UIViewContentModeScaleToFill;
+    // draw slightly-cropped pin image for cell
+    //
+    UIImage *pinImage = [[self.filterTypes objectAtIndex:indexPath.row] objectForKey:@"image"];
+    
+    float dimension = pinImage.size.height * 2/3;
+    
+    UIGraphicsBeginImageContext(CGSizeMake(dimension, dimension));
+    
+    [pinImage drawInRect:CGRectMake((dimension - pinImage.size.width) / 2, 0, pinImage.size.width, pinImage.size.height)];
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+
+    cell.imageView.image = image;
     
     cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.bounds];
     cell.selectedBackgroundView.backgroundColor = self.navigationController.navigationBar.tintColor;
