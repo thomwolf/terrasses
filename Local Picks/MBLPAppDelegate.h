@@ -8,12 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class MBLPViewController;
-
 @interface MBLPAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
-@property (strong, nonatomic) MBLPViewController *viewController;
 
 @end

@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MBLPViewController : UIViewController
+#import "RMMapViewDelegate.h"
+
+#import "MBLPSearchViewController.h"
+
+@interface MBLPViewController : UIViewController <RMMapViewDelegate, MBLPSearchDelegate>
 
 @end

@@ -15,22 +15,85 @@
 		DD8CD18C158C27F300067C1B /* MBLPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8CD18B158C27F300067C1B /* MBLPAppDelegate.m */; };
 		DD8CD18F158C27F300067C1B /* MBLPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8CD18E158C27F300067C1B /* MBLPViewController.m */; };
 		DD8CD192158C27F300067C1B /* MBLPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD8CD190158C27F300067C1B /* MBLPViewController.xib */; };
+		DD8CD1B0158C297C00067C1B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8CD1AF158C297C00067C1B /* CoreLocation.framework */; };
+		DD8CD1B2158C298200067C1B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8CD1B1158C298200067C1B /* QuartzCore.framework */; };
+		DD8CD1B4158C298700067C1B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8CD1B3158C298700067C1B /* libsqlite3.dylib */; };
+		DD8CD1B6158C298B00067C1B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8CD1B5158C298B00067C1B /* libz.dylib */; };
+		DD8CD1B9158C2A7500067C1B /* MBLPSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8CD1B8158C2A7500067C1B /* MBLPSearchViewController.m */; };
+		DD8CD1C5158C2ACC00067C1B /* HeadingAngleSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = DD8CD1BB158C2ACC00067C1B /* HeadingAngleSmall.png */; };
+		DD8CD1C6158C2ACC00067C1B /* HeadingAngleSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD8CD1BC158C2ACC00067C1B /* HeadingAngleSmall@2x.png */; };
+		DD8CD1C7158C2ACC00067C1B /* TrackingDot.png in Resources */ = {isa = PBXBuildFile; fileRef = DD8CD1BD158C2ACC00067C1B /* TrackingDot.png */; };
+		DD8CD1C8158C2ACC00067C1B /* TrackingDot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD8CD1BE158C2ACC00067C1B /* TrackingDot@2x.png */; };
+		DD8CD1C9158C2ACC00067C1B /* TrackingDotHalo.png in Resources */ = {isa = PBXBuildFile; fileRef = DD8CD1BF158C2ACC00067C1B /* TrackingDotHalo.png */; };
+		DD8CD1CA158C2ACC00067C1B /* TrackingDotHalo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD8CD1C0158C2ACC00067C1B /* TrackingDotHalo@2x.png */; };
+		DD8CD1CB158C2ACC00067C1B /* TrackingHeading.png in Resources */ = {isa = PBXBuildFile; fileRef = DD8CD1C1158C2ACC00067C1B /* TrackingHeading.png */; };
+		DD8CD1CC158C2ACC00067C1B /* TrackingHeading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD8CD1C2158C2ACC00067C1B /* TrackingHeading@2x.png */; };
+		DD8CD1CD158C2ACC00067C1B /* TrackingLocation.png in Resources */ = {isa = PBXBuildFile; fileRef = DD8CD1C3158C2ACC00067C1B /* TrackingLocation.png */; };
+		DD8CD1CE158C2ACC00067C1B /* TrackingLocation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD8CD1C4158C2ACC00067C1B /* TrackingLocation@2x.png */; };
+		DD8CD1CF158C2BE900067C1B /* libMapView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8CD1A9158C296000067C1B /* libMapView.a */; };
+		DD8D9582158C4ABB00C4C4C3 /* MBLPDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8D9581158C4ABB00C4C4C3 /* MBLPDetailViewController.m */; };
+		DD9530A7158F933A00E9FD42 /* UIColor+MBLPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9530A6158F933A00E9FD42 /* UIColor+MBLPExtensions.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DD8CD1A8158C296000067C1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD8CD199158C295F00067C1B /* MapView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 17F31EFA1331050A00122B16;
+			remoteInfo = MapView;
+		};
+		DD8CD1AA158C296000067C1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD8CD199158C295F00067C1B /* MapView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2BF3078F0F8AC5C0007014EE;
+			remoteInfo = "Unit Tests";
+		};
+		DD8CD1AD158C297600067C1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD8CD199158C295F00067C1B /* MapView.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B8C974130E8A19B2007D16AD;
+			remoteInfo = MapView;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		DD8CD177158C27F200067C1B /* Local Picks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Local Picks.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8CD17B158C27F200067C1B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DD8CD17D158C27F200067C1B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DD8CD17F158C27F200067C1B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		DD8CD183158C27F300067C1B /* Local Picks-Info.plist */ = {isa = PBXFileReference; path = "Local Picks-Info.plist"; sourceTree = "<group>"; };
+		DD8CD183158C27F300067C1B /* Local Picks-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Local Picks-Info.plist"; sourceTree = "<group>"; };
 		DD8CD185158C27F300067C1B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DD8CD187158C27F300067C1B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		DD8CD189158C27F300067C1B /* Local Picks-Prefix.pch */ = {isa = PBXFileReference; path = "Local Picks-Prefix.pch"; sourceTree = "<group>"; };
-		DD8CD18A158C27F300067C1B /* MBLPAppDelegate.h */ = {isa = PBXFileReference; path = MBLPAppDelegate.h; sourceTree = "<group>"; };
+		DD8CD189158C27F300067C1B /* Local Picks-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Local Picks-Prefix.pch"; sourceTree = "<group>"; };
+		DD8CD18A158C27F300067C1B /* MBLPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBLPAppDelegate.h; sourceTree = "<group>"; };
 		DD8CD18B158C27F300067C1B /* MBLPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBLPAppDelegate.m; sourceTree = "<group>"; };
-		DD8CD18D158C27F300067C1B /* MBLPViewController.h */ = {isa = PBXFileReference; path = MBLPViewController.h; sourceTree = "<group>"; };
+		DD8CD18D158C27F300067C1B /* MBLPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBLPViewController.h; sourceTree = "<group>"; };
 		DD8CD18E158C27F300067C1B /* MBLPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBLPViewController.m; sourceTree = "<group>"; };
 		DD8CD191158C27F300067C1B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MBLPViewController.xib; sourceTree = "<group>"; };
+		DD8CD199158C295F00067C1B /* MapView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MapView.xcodeproj; path = "MapBox-iOS-SDK/MapView/MapView.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		DD8CD1AF158C297C00067C1B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		DD8CD1B1158C298200067C1B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		DD8CD1B3158C298700067C1B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		DD8CD1B5158C298B00067C1B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		DD8CD1B7158C2A7500067C1B /* MBLPSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBLPSearchViewController.h; sourceTree = "<group>"; };
+		DD8CD1B8158C2A7500067C1B /* MBLPSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBLPSearchViewController.m; sourceTree = "<group>"; };
+		DD8CD1BB158C2ACC00067C1B /* HeadingAngleSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HeadingAngleSmall.png; path = "MapBox-iOS-SDK/MapView/Map/Resources/HeadingAngleSmall.png"; sourceTree = SOURCE_ROOT; };
+		DD8CD1BC158C2ACC00067C1B /* HeadingAngleSmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "HeadingAngleSmall@2x.png"; path = "MapBox-iOS-SDK/MapView/Map/Resources/HeadingAngleSmall@2x.png"; sourceTree = SOURCE_ROOT; };
+		DD8CD1BD158C2ACC00067C1B /* TrackingDot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TrackingDot.png; path = "MapBox-iOS-SDK/MapView/Map/Resources/TrackingDot.png"; sourceTree = SOURCE_ROOT; };
+		DD8CD1BE158C2ACC00067C1B /* TrackingDot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TrackingDot@2x.png"; path = "MapBox-iOS-SDK/MapView/Map/Resources/TrackingDot@2x.png"; sourceTree = SOURCE_ROOT; };
+		DD8CD1BF158C2ACC00067C1B /* TrackingDotHalo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TrackingDotHalo.png; path = "MapBox-iOS-SDK/MapView/Map/Resources/TrackingDotHalo.png"; sourceTree = SOURCE_ROOT; };
+		DD8CD1C0158C2ACC00067C1B /* TrackingDotHalo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TrackingDotHalo@2x.png"; path = "MapBox-iOS-SDK/MapView/Map/Resources/TrackingDotHalo@2x.png"; sourceTree = SOURCE_ROOT; };
+		DD8CD1C1158C2ACC00067C1B /* TrackingHeading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TrackingHeading.png; path = "MapBox-iOS-SDK/MapView/Map/Resources/TrackingHeading.png"; sourceTree = SOURCE_ROOT; };
+		DD8CD1C2158C2ACC00067C1B /* TrackingHeading@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TrackingHeading@2x.png"; path = "MapBox-iOS-SDK/MapView/Map/Resources/TrackingHeading@2x.png"; sourceTree = SOURCE_ROOT; };
+		DD8CD1C3158C2ACC00067C1B /* TrackingLocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TrackingLocation.png; path = "MapBox-iOS-SDK/MapView/Map/Resources/TrackingLocation.png"; sourceTree = SOURCE_ROOT; };
+		DD8CD1C4158C2ACC00067C1B /* TrackingLocation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TrackingLocation@2x.png"; path = "MapBox-iOS-SDK/MapView/Map/Resources/TrackingLocation@2x.png"; sourceTree = SOURCE_ROOT; };
+		DD8D9580158C4ABB00C4C4C3 /* MBLPDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBLPDetailViewController.h; sourceTree = "<group>"; };
+		DD8D9581158C4ABB00C4C4C3 /* MBLPDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBLPDetailViewController.m; sourceTree = "<group>"; };
+		DD9530A5158F933A00E9FD42 /* UIColor+MBLPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MBLPExtensions.h"; sourceTree = "<group>"; };
+		DD9530A6158F933A00E9FD42 /* UIColor+MBLPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MBLPExtensions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,9 +101,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD8CD17C158C27F200067C1B /* UIKit.framework in Frameworks */,
-				DD8CD17E158C27F200067C1B /* Foundation.framework in Frameworks */,
 				DD8CD180158C27F200067C1B /* CoreGraphics.framework in Frameworks */,
+				DD8CD1B0158C297C00067C1B /* CoreLocation.framework in Frameworks */,
+				DD8CD17E158C27F200067C1B /* Foundation.framework in Frameworks */,
+				DD8CD1B2158C298200067C1B /* QuartzCore.framework in Frameworks */,
+				DD8CD17C158C27F200067C1B /* UIKit.framework in Frameworks */,
+				DD8CD1CF158C2BE900067C1B /* libMapView.a in Frameworks */,
+				DD8CD1B4158C298700067C1B /* libsqlite3.dylib in Frameworks */,
+				DD8CD1B6158C298B00067C1B /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				DD8CD181158C27F200067C1B /* Local Picks */,
+				DD8CD1BA158C2A9E00067C1B /* Resources */,
+				DD8CD198158C294D00067C1B /* MapBox SDK */,
 				DD8CD17A158C27F200067C1B /* Frameworks */,
 				DD8CD178158C27F200067C1B /* Products */,
 			);
@@ -67,9 +137,13 @@
 		DD8CD17A158C27F200067C1B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DD8CD17B158C27F200067C1B /* UIKit.framework */,
-				DD8CD17D158C27F200067C1B /* Foundation.framework */,
 				DD8CD17F158C27F200067C1B /* CoreGraphics.framework */,
+				DD8CD1AF158C297C00067C1B /* CoreLocation.framework */,
+				DD8CD17D158C27F200067C1B /* Foundation.framework */,
+				DD8CD1B1158C298200067C1B /* QuartzCore.framework */,
+				DD8CD17B158C27F200067C1B /* UIKit.framework */,
+				DD8CD1B3158C298700067C1B /* libsqlite3.dylib */,
+				DD8CD1B5158C298B00067C1B /* libz.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -82,6 +156,11 @@
 				DD8CD18D158C27F300067C1B /* MBLPViewController.h */,
 				DD8CD18E158C27F300067C1B /* MBLPViewController.m */,
 				DD8CD190158C27F300067C1B /* MBLPViewController.xib */,
+				DD8CD1B7158C2A7500067C1B /* MBLPSearchViewController.h */,
+				DD8CD1B8158C2A7500067C1B /* MBLPSearchViewController.m */,
+				DD8D9580158C4ABB00C4C4C3 /* MBLPDetailViewController.h */,
+				DD8D9581158C4ABB00C4C4C3 /* MBLPDetailViewController.m */,
+				DD9530A8158F965D00E9FD42 /* Categories */,
 				DD8CD182158C27F300067C1B /* Supporting Files */,
 			);
 			path = "Local Picks";
@@ -98,6 +177,51 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		DD8CD198158C294D00067C1B /* MapBox SDK */ = {
+			isa = PBXGroup;
+			children = (
+				DD8CD199158C295F00067C1B /* MapView.xcodeproj */,
+			);
+			name = "MapBox SDK";
+			path = "Local Picks";
+			sourceTree = "<group>";
+		};
+		DD8CD19A158C295F00067C1B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD8CD1A9158C296000067C1B /* libMapView.a */,
+				DD8CD1AB158C296000067C1B /* RM Unit Tests.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD8CD1BA158C2A9E00067C1B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DD8CD1BB158C2ACC00067C1B /* HeadingAngleSmall.png */,
+				DD8CD1BC158C2ACC00067C1B /* HeadingAngleSmall@2x.png */,
+				DD8CD1BD158C2ACC00067C1B /* TrackingDot.png */,
+				DD8CD1BE158C2ACC00067C1B /* TrackingDot@2x.png */,
+				DD8CD1BF158C2ACC00067C1B /* TrackingDotHalo.png */,
+				DD8CD1C0158C2ACC00067C1B /* TrackingDotHalo@2x.png */,
+				DD8CD1C1158C2ACC00067C1B /* TrackingHeading.png */,
+				DD8CD1C2158C2ACC00067C1B /* TrackingHeading@2x.png */,
+				DD8CD1C3158C2ACC00067C1B /* TrackingLocation.png */,
+				DD8CD1C4158C2ACC00067C1B /* TrackingLocation@2x.png */,
+			);
+			name = Resources;
+			path = "Local Picks";
+			sourceTree = "<group>";
+		};
+		DD9530A8158F965D00E9FD42 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				DD9530A5158F933A00E9FD42 /* UIColor+MBLPExtensions.h */,
+				DD9530A6158F933A00E9FD42 /* UIColor+MBLPExtensions.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,6 +236,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				DD8CD1AE158C297600067C1B /* PBXTargetDependency */,
 			);
 			name = "Local Picks";
 			productName = "Local Picks";
@@ -138,12 +263,35 @@
 			mainGroup = DD8CD16C158C27F200067C1B;
 			productRefGroup = DD8CD178158C27F200067C1B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = DD8CD19A158C295F00067C1B /* Products */;
+					ProjectRef = DD8CD199158C295F00067C1B /* MapView.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				DD8CD176158C27F200067C1B /* Local Picks */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		DD8CD1A9158C296000067C1B /* libMapView.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMapView.a;
+			remoteRef = DD8CD1A8158C296000067C1B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DD8CD1AB158C296000067C1B /* RM Unit Tests.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "RM Unit Tests.app";
+			remoteRef = DD8CD1AA158C296000067C1B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		DD8CD175158C27F200067C1B /* Resources */ = {
@@ -152,6 +300,16 @@
 			files = (
 				DD8CD186158C27F300067C1B /* InfoPlist.strings in Resources */,
 				DD8CD192158C27F300067C1B /* MBLPViewController.xib in Resources */,
+				DD8CD1C5158C2ACC00067C1B /* HeadingAngleSmall.png in Resources */,
+				DD8CD1C6158C2ACC00067C1B /* HeadingAngleSmall@2x.png in Resources */,
+				DD8CD1C7158C2ACC00067C1B /* TrackingDot.png in Resources */,
+				DD8CD1C8158C2ACC00067C1B /* TrackingDot@2x.png in Resources */,
+				DD8CD1C9158C2ACC00067C1B /* TrackingDotHalo.png in Resources */,
+				DD8CD1CA158C2ACC00067C1B /* TrackingDotHalo@2x.png in Resources */,
+				DD8CD1CB158C2ACC00067C1B /* TrackingHeading.png in Resources */,
+				DD8CD1CC158C2ACC00067C1B /* TrackingHeading@2x.png in Resources */,
+				DD8CD1CD158C2ACC00067C1B /* TrackingLocation.png in Resources */,
+				DD8CD1CE158C2ACC00067C1B /* TrackingLocation@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,10 +323,21 @@
 				DD8CD188158C27F300067C1B /* main.m in Sources */,
 				DD8CD18C158C27F300067C1B /* MBLPAppDelegate.m in Sources */,
 				DD8CD18F158C27F300067C1B /* MBLPViewController.m in Sources */,
+				DD8CD1B9158C2A7500067C1B /* MBLPSearchViewController.m in Sources */,
+				DD8D9582158C4ABB00C4C4C3 /* MBLPDetailViewController.m in Sources */,
+				DD9530A7158F933A00E9FD42 /* UIColor+MBLPExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DD8CD1AE158C297600067C1B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MapView;
+			targetProxy = DD8CD1AD158C297600067C1B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DD8CD184158C27F300067C1B /* InfoPlist.strings */ = {
@@ -210,7 +379,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -228,7 +397,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -240,7 +409,9 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Local Picks/Local Picks-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/MapBox-iOS-SDK/**";
 				INFOPLIST_FILE = "Local Picks/Local Picks-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -251,7 +422,9 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Local Picks/Local Picks-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/MapBox-iOS-SDK/**";
 				INFOPLIST_FILE = "Local Picks/Local Picks-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -276,6 +449,7 @@
 				DD8CD197158C27F300067C1B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
