@@ -33,6 +33,7 @@
 		DD8CD1CF158C2BE900067C1B /* libMapView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8CD1A9158C296000067C1B /* libMapView.a */; };
 		DD8D9582158C4ABB00C4C4C3 /* MBWPDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8D9581158C4ABB00C4C4C3 /* MBWPDetailViewController.m */; };
 		DD9530A7158F933A00E9FD42 /* UIColor+MBWPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9530A6158F933A00E9FD42 /* UIColor+MBWPExtensions.m */; };
+		DDA38812158FAF6600AC339E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA38811158FAF6600AC339E /* icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		DD8D9581158C4ABB00C4C4C3 /* MBWPDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBWPDetailViewController.m; sourceTree = "<group>"; };
 		DD9530A5158F933A00E9FD42 /* UIColor+MBWPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MBWPExtensions.h"; sourceTree = "<group>"; };
 		DD9530A6158F933A00E9FD42 /* UIColor+MBWPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MBWPExtensions.m"; sourceTree = "<group>"; };
+		DDA38811158FAF6600AC339E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 		DD8CD1BA158C2A9E00067C1B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DDA38811158FAF6600AC339E /* icon.png */,
 				DD8CD1BB158C2ACC00067C1B /* HeadingAngleSmall.png */,
 				DD8CD1BC158C2ACC00067C1B /* HeadingAngleSmall@2x.png */,
 				DD8CD1BD158C2ACC00067C1B /* TrackingDot.png */,
@@ -310,6 +313,7 @@
 				DD8CD1CC158C2ACC00067C1B /* TrackingHeading@2x.png in Resources */,
 				DD8CD1CD158C2ACC00067C1B /* TrackingLocation.png in Resources */,
 				DD8CD1CE158C2ACC00067C1B /* TrackingLocation@2x.png in Resources */,
+				DDA38812158FAF6600AC339E /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
