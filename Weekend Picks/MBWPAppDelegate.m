@@ -1,16 +1,16 @@
 //
-//  MBLPAppDelegate.m
-//  Local Picks
+//  MBWPAppDelegate.m
+//  Weekend Picks
 //
 //  Created by Justin Miller on 6/15/12.
 //  Copyright (c) 2012 MapBox / Development Seed. All rights reserved.
 //
 
-#import "MBLPAppDelegate.h"
+#import "MBWPAppDelegate.h"
 
-#import "MBLPViewController.h"
+#import "MBWPViewController.h"
 
-@implementation MBLPAppDelegate
+@implementation MBWPAppDelegate
 
 @synthesize window = _window;
 
@@ -18,7 +18,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[MBLPViewController alloc] initWithNibName:nil bundle:nil]];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[MBWPViewController alloc] initWithNibName:nil bundle:nil]];
     
     [self.window makeKeyAndVisible];
     

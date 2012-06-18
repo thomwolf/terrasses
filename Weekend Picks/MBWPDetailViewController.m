@@ -1,16 +1,16 @@
 //
-//  MBLPDetailViewController.m
-//  Local Picks
+//  MBWPDetailViewController.m
+//  Weekend Picks
 //
 //  Created by Justin Miller on 6/15/12.
 //  Copyright (c) 2012 MapBox / Development Seed. All rights reserved.
 //
 
-#import "MBLPDetailViewController.h"
+#import "MBWPDetailViewController.h"
 
-#import "UIColor+MBLPExtensions.h"
+#import "UIColor+MBWPExtensions.h"
 
-@implementation MBLPDetailViewController
+@implementation MBWPDetailViewController
 
 @synthesize detailTitle;
 @synthesize detailDescription;

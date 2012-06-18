@@ -1,6 +1,6 @@
 //
-//  UIColor_MBLPExtensions.h
-//  Local Picks
+//  UIColor_MBWPExtensions.h
+//  Weekend Picks
 //
 //  Created by Justin Miller on 6/18/12.
 //  Copyright (c) 2012 MapBox / Development Seed. All rights reserved.
@@ -11,7 +11,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIColor (MBLPExtensions)
+@interface UIColor (MBWPExtensions)
 
 + (UIColor *)colorWithHexString:(NSString *)hexString;
 - (NSString *)hexStringFromColor;

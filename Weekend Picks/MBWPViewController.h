@@ -1,6 +1,6 @@
 //
-//  MBLPViewController.h
-//  Local Picks
+//  MBWPViewController.h
+//  Weekend Picks
 //
 //  Created by Justin Miller on 6/15/12.
 //  Copyright (c) 2012 MapBox / Development Seed. All rights reserved.
@@ -10,8 +10,8 @@
 
 #import "RMMapViewDelegate.h"
 
-#import "MBLPSearchViewController.h"
+#import "MBWPSearchViewController.h"
 
-@interface MBLPViewController : UIViewController <RMMapViewDelegate, MBLPSearchDelegate>
+@interface MBWPViewController : UIViewController <RMMapViewDelegate, MBWPSearchDelegate>
 
 @end

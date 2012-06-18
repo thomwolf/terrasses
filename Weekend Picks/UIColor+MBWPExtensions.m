@@ -1,14 +1,14 @@
 //
-//  UIColor_MBLPExtensions.m
-//  Local Picks
+//  UIColor_MBWPExtensions.m
+//  Weekend Picks
 //
 //  Created by Justin Miller on 6/18/12.
 //  Copyright (c) 2012 MapBox / Development Seed. All rights reserved.
 //
 
-#import "UIColor+MBLPExtensions.h"
+#import "UIColor+MBWPExtensions.h"
 
-@interface UIColor (MBLPExtensions_Private)
+@interface UIColor (MBWPExtensions_Private)
 
 + (UIColor *)colorWithRGBHex:(UInt32)hex;
 - (CGColorSpaceModel)colorSpaceModel;
@@ -20,7 +20,7 @@
 
 #pragma mark -
 
-@implementation UIColor (MBLPExtensions)
+@implementation UIColor (MBWPExtensions)
 
 + (UIColor *)colorWithRGBHex:(UInt32)hex
 {

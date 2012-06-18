@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 MapBox / Development Seed. All rights reserved.
 //
 
-#import "MBLPSearchViewController.h"
+#import "MBWPSearchViewController.h"
 
-@implementation MBLPSearchViewController
+@implementation MBWPSearchViewController
 
 @synthesize filterTypes;
 @synthesize delegate;

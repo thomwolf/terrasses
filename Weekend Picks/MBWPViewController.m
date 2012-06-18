@@ -1,12 +1,12 @@
 //
-//  MBLPViewController.m
-//  Local Picks
+//  MBWPViewController.m
+//  Weekend Picks
 //
 //  Created by Justin Miller on 6/15/12.
 //  Copyright (c) 2012 MapBox / Development Seed. All rights reserved.
 //
 
-#import "MBLPViewController.h"
+#import "MBWPViewController.h"
 
 #import "RMMapView.h"
 #import "RMUserTrackingBarButtonItem.h"
@@ -14,15 +14,15 @@
 #import "RMAnnotation.h"
 #import "RMMarker.h"
 
-#import "MBLPSearchViewController.h"
-#import "MBLPDetailViewController.h"
+#import "MBWPSearchViewController.h"
+#import "MBWPDetailViewController.h"
 
-#import "UIColor+MBLPExtensions.h"
+#import "UIColor+MBWPExtensions.h"
 
 #define kTileJSONURL  @"http://a.tiles.mapbox.com/v3/examples.map-8j8lv902.jsonp"
 #define kTintColorHex @"#AA0000"
 
-@interface MBLPViewController ()
+@interface MBWPViewController ()
 
 @property (strong) IBOutlet RMMapView *mapView;
 @property (strong) NSArray *activeFilterTypes;
@@ -31,7 +31,7 @@
 
 #pragma mark -
 
-@implementation MBLPViewController
+@implementation MBWPViewController
 
 @synthesize mapView;
 @synthesize activeFilterTypes;
@@ -98,7 +98,7 @@
         }
     }
     
-    MBLPSearchViewController *searchController = [[MBLPSearchViewController alloc] initWithNibName:nil bundle:nil];
+    MBWPSearchViewController *searchController = [[MBWPSearchViewController alloc] initWithNibName:nil bundle:nil];
     
     searchController.delegate = self;
     searchController.filterTypes = [NSArray arrayWithArray:filterTypes];
@@ -127,7 +127,7 @@
 
 - (void)tapOnAnnotation:(RMAnnotation *)annotation onMap:(RMMapView *)map
 {
-    MBLPDetailViewController *detailController = [[MBLPDetailViewController alloc] initWithNibName:nil bundle:nil];
+    MBWPDetailViewController *detailController = [[MBWPDetailViewController alloc] initWithNibName:nil bundle:nil];
     
     detailController.detailTitle       = [annotation.userInfo objectForKey:@"title"];
     detailController.detailDescription = [annotation.userInfo objectForKey:@"description"];
@@ -137,7 +137,7 @@
 
 #pragma mark -
 
-- (void)searchViewController:(MBLPSearchViewController *)controller didApplyFilterTypes:(NSArray *)filterTypes
+- (void)searchViewController:(MBWPSearchViewController *)controller didApplyFilterTypes:(NSArray *)filterTypes
 {
     self.activeFilterTypes = filterTypes;
     
