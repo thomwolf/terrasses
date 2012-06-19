@@ -34,6 +34,7 @@
 		DD8D9582158C4ABB00C4C4C3 /* MBWPDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8D9581158C4ABB00C4C4C3 /* MBWPDetailViewController.m */; };
 		DD9530A7158F933A00E9FD42 /* UIColor+MBWPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9530A6158F933A00E9FD42 /* UIColor+MBWPExtensions.m */; };
 		DDA38812158FAF6600AC339E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA38811158FAF6600AC339E /* icon.png */; };
+		DDD7C5A3158FFF9C0061B9F4 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDD7C5A2158FFF9C0061B9F4 /* Entitlements.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		DD9530A5158F933A00E9FD42 /* UIColor+MBWPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MBWPExtensions.h"; sourceTree = "<group>"; };
 		DD9530A6158F933A00E9FD42 /* UIColor+MBWPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MBWPExtensions.m"; sourceTree = "<group>"; };
 		DDA38811158FAF6600AC339E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = SOURCE_ROOT; };
+		DDD7C5A2158FFF9C0061B9F4 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 				DD8CD184158C27F300067C1B /* InfoPlist.strings */,
 				DD8CD187158C27F300067C1B /* main.m */,
 				DD8CD189158C27F300067C1B /* Weekend Picks-Prefix.pch */,
+				DDD7C5A2158FFF9C0061B9F4 /* Entitlements.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				DD8CD1CD158C2ACC00067C1B /* TrackingLocation.png in Resources */,
 				DD8CD1CE158C2ACC00067C1B /* TrackingLocation@2x.png in Resources */,
 				DDA38812158FAF6600AC339E /* icon.png in Resources */,
+				DDD7C5A3158FFF9C0061B9F4 /* Entitlements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +373,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -394,6 +399,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
