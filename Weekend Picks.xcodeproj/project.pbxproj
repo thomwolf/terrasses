@@ -123,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				DD8CD181158C27F200067C1B /* Weekend Picks */,
+				DD9530A8158F965D00E9FD42 /* Categories */,
 				DD8CD1BA158C2A9E00067C1B /* Resources */,
 				DD8CD198158C294D00067C1B /* MapBox SDK */,
 				DD8CD17A158C27F200067C1B /* Frameworks */,
@@ -164,7 +165,6 @@
 				DD8CD1B8158C2A7500067C1B /* MBWPSearchViewController.m */,
 				DD8D9580158C4ABB00C4C4C3 /* MBWPDetailViewController.h */,
 				DD8D9581158C4ABB00C4C4C3 /* MBWPDetailViewController.m */,
-				DD9530A8158F965D00E9FD42 /* Categories */,
 				DD8CD182158C27F300067C1B /* Supporting Files */,
 			);
 			path = "Weekend Picks";
@@ -226,6 +226,7 @@
 				DD9530A6158F933A00E9FD42 /* UIColor+MBWPExtensions.m */,
 			);
 			name = Categories;
+			path = "Weekend Picks";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
