@@ -144,12 +144,15 @@
 
 - (void)tapOnAnnotation:(RMAnnotation *)annotation onMap:(RMMapView *)map
 {
-    MBWPDetailViewController *detailController = [[MBWPDetailViewController alloc] initWithNibName:nil bundle:nil];
-    
-    detailController.detailTitle       = [annotation.userInfo objectForKey:@"title"];
-    detailController.detailDescription = [annotation.userInfo objectForKey:@"description"];
+    if ( ! annotation.isUserLocationAnnotation)
+    {
+        MBWPDetailViewController *detailController = [[MBWPDetailViewController alloc] initWithNibName:nil bundle:nil];
+        
+        detailController.detailTitle       = [annotation.userInfo objectForKey:@"title"];
+        detailController.detailDescription = [annotation.userInfo objectForKey:@"description"];
 
-    [self.navigationController pushViewController:detailController animated:YES];
+        [self.navigationController pushViewController:detailController animated:YES];
+    }
 }
 
 #pragma mark -
