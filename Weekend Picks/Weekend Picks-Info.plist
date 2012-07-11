@@ -12,9 +12,12 @@
 	<dict>
 		<key>CFBundlePrimaryIcon</key>
 		<dict>
+			<key>UIPrerenderedIcon</key>
+			<true/>
 			<key>CFBundleIconFiles</key>
 			<array>
 				<string>icon.png</string>
+				<string>icon@2x.png</string>
 			</array>
 		</dict>
 	</dict>
