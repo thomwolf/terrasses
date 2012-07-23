@@ -59,10 +59,6 @@
     
     self.mapView.backgroundColor = [UIColor darkGrayColor];
     
-    self.mapView.decelerationMode = RMMapDecelerationFast;
-    
-    self.mapView.boundingMask = RMMapMinHeightBound;
-    
     [self.mapView setConstraintsSouthWest:[self.mapView.tileSource latitudeLongitudeBoundingBox].southWest 
                                 northEast:[self.mapView.tileSource latitudeLongitudeBoundingBox].northEast];
     
