@@ -136,6 +136,8 @@
     
     if (self.activeFilterTypes)
         marker.hidden = ! [self.activeFilterTypes containsObject:[annotation.userInfo objectForKey:@"marker-symbol"]];
+
+    marker.enableDragging = YES;
     
     return marker;
 }
@@ -151,6 +153,26 @@
 
         [self.navigationController pushViewController:detailController animated:YES];
     }
+}
+
+- (BOOL)mapView:(RMMapView *)map shouldDragAnnotation:(RMAnnotation *)annotation
+{
+    return YES;
+}
+
+- (void)mapView:(RMMapView *)map didDragAnnotation:(RMAnnotation *)annotation withDelta:(CGPoint)delta
+{
+    if (CATransform3DEqualToTransform(annotation.layer.transform, CATransform3DIdentity))
+        annotation.layer.transform = CATransform3DMakeScale(2.5, 2.5, 1);
+
+    annotation.position = CGPointMake(annotation.position.x - delta.x, annotation.position.y - delta.y);
+}
+
+- (void)mapView:(RMMapView *)map didEndDragAnnotation:(RMAnnotation *)annotation
+{
+    annotation.layer.transform = CATransform3DIdentity;
+
+    annotation.coordinate = [map pixelToCoordinate:annotation.position];
 }
 
 #pragma mark -
