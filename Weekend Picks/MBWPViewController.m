@@ -157,14 +157,14 @@
 
 - (BOOL)mapView:(RMMapView *)map shouldDragAnnotation:(RMAnnotation *)annotation
 {
+    if (CATransform3DEqualToTransform(annotation.layer.transform, CATransform3DIdentity))
+        annotation.layer.transform = CATransform3DMakeScale(2.5, 2.5, 1);
+
     return YES;
 }
 
 - (void)mapView:(RMMapView *)map didDragAnnotation:(RMAnnotation *)annotation withDelta:(CGPoint)delta
 {
-    if (CATransform3DEqualToTransform(annotation.layer.transform, CATransform3DIdentity))
-        annotation.layer.transform = CATransform3DMakeScale(2.5, 2.5, 1);
-
     annotation.position = CGPointMake(annotation.position.x - delta.x, annotation.position.y - delta.y);
 }
 
