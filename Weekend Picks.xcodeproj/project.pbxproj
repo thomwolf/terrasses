@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD50C8CE15D30BB7006CA033 /* Washington, DC.gpx in Resources */ = {isa = PBXBuildFile; fileRef = DD50C8CD15D30BB7006CA033 /* Washington, DC.gpx */; };
 		DD8CD17C158C27F200067C1B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8CD17B158C27F200067C1B /* UIKit.framework */; };
 		DD8CD17E158C27F200067C1B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8CD17D158C27F200067C1B /* Foundation.framework */; };
 		DD8CD180158C27F200067C1B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8CD17F158C27F200067C1B /* CoreGraphics.framework */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DD50C8CD15D30BB7006CA033 /* Washington, DC.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Washington, DC.gpx"; sourceTree = SOURCE_ROOT; };
 		DD8CD177158C27F200067C1B /* Picks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Picks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8CD17B158C27F200067C1B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DD8CD17D158C27F200067C1B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -173,6 +175,7 @@
 				DD8CD187158C27F300067C1B /* main.m */,
 				DD8CD189158C27F300067C1B /* Weekend Picks-Prefix.pch */,
 				DDD7C5EE159002300061B9F4 /* Entitlements.plist */,
+				DD50C8CD15D30BB7006CA033 /* Washington, DC.gpx */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				DDA38812158FAF6600AC339E /* icon.png in Resources */,
 				DDD7C5EF159002300061B9F4 /* Entitlements.plist in Resources */,
 				DD930BF315ACFCC90066071A /* icon@2x.png in Resources */,
+				DD50C8CE15D30BB7006CA033 /* Washington, DC.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
