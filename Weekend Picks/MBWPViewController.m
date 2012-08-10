@@ -62,8 +62,6 @@
     [self.mapView setConstraintsSouthWest:[self.mapView.tileSource latitudeLongitudeBoundingBox].southWest 
                                 northEast:[self.mapView.tileSource latitudeLongitudeBoundingBox].northEast];
     
-    self.mapView.delegate = self;
-    
     self.mapView.showsUserLocation = YES;
     
     self.mapView.viewControllerPresentingAttribution = self;
