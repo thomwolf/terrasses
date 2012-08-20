@@ -57,8 +57,6 @@
     
     self.mapView.zoom = 2;
     
-    self.mapView.backgroundColor = [UIColor darkGrayColor];
-    
     [self.mapView setConstraintsSouthWest:[self.mapView.tileSource latitudeLongitudeBoundingBox].southWest 
                                 northEast:[self.mapView.tileSource latitudeLongitudeBoundingBox].northEast];
     

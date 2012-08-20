@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD49B8D715E2DF9D0055CCEE /* LoadingTile.png in Resources */ = {isa = PBXBuildFile; fileRef = DD49B8D515E2DF9D0055CCEE /* LoadingTile.png */; };
+		DD49B8D815E2DF9D0055CCEE /* LoadingTileZoom.png in Resources */ = {isa = PBXBuildFile; fileRef = DD49B8D615E2DF9D0055CCEE /* LoadingTileZoom.png */; };
 		DD50C8CE15D30BB7006CA033 /* Washington, DC.gpx in Resources */ = {isa = PBXBuildFile; fileRef = DD50C8CD15D30BB7006CA033 /* Washington, DC.gpx */; };
 		DD8CD17C158C27F200067C1B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8CD17B158C27F200067C1B /* UIKit.framework */; };
 		DD8CD17E158C27F200067C1B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8CD17D158C27F200067C1B /* Foundation.framework */; };
@@ -57,6 +59,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DD49B8D515E2DF9D0055CCEE /* LoadingTile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LoadingTile.png; path = "MapBox-iOS-SDK/MapView/Map/Resources/LoadingTile.png"; sourceTree = SOURCE_ROOT; };
+		DD49B8D615E2DF9D0055CCEE /* LoadingTileZoom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LoadingTileZoom.png; path = "MapBox-iOS-SDK/MapView/Map/Resources/LoadingTileZoom.png"; sourceTree = SOURCE_ROOT; };
 		DD50C8CD15D30BB7006CA033 /* Washington, DC.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Washington, DC.gpx"; sourceTree = SOURCE_ROOT; };
 		DD8CD177158C27F200067C1B /* Picks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Picks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8CD17B158C27F200067C1B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -204,6 +208,8 @@
 				DD930BF215ACFCC90066071A /* icon@2x.png */,
 				DD8CD1BB158C2ACC00067C1B /* HeadingAngleSmall.png */,
 				DD8CD1BC158C2ACC00067C1B /* HeadingAngleSmall@2x.png */,
+				DD49B8D515E2DF9D0055CCEE /* LoadingTile.png */,
+				DD49B8D615E2DF9D0055CCEE /* LoadingTileZoom.png */,
 				DD8CD1BD158C2ACC00067C1B /* TrackingDot.png */,
 				DD8CD1BE158C2ACC00067C1B /* TrackingDot@2x.png */,
 				DD8CD1BF158C2ACC00067C1B /* TrackingDotHalo.png */,
@@ -312,6 +318,8 @@
 				DDD7C5EF159002300061B9F4 /* Entitlements.plist in Resources */,
 				DD930BF315ACFCC90066071A /* icon@2x.png in Resources */,
 				DD50C8CE15D30BB7006CA033 /* Washington, DC.gpx in Resources */,
+				DD49B8D715E2DF9D0055CCEE /* LoadingTile.png in Resources */,
+				DD49B8D815E2DF9D0055CCEE /* LoadingTileZoom.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
