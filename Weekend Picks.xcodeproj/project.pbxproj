@@ -37,6 +37,7 @@
 		DD8D9582158C4ABB00C4C4C3 /* MBWPDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8D9581158C4ABB00C4C4C3 /* MBWPDetailViewController.m */; };
 		DD930BF315ACFCC90066071A /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD930BF215ACFCC90066071A /* icon@2x.png */; };
 		DD9530A7158F933A00E9FD42 /* UIColor+MBWPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9530A6158F933A00E9FD42 /* UIColor+MBWPExtensions.m */; };
+		DD9BFE4F1601419B0011F174 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9BFE4E1601419B0011F174 /* Default-568h@2x.png */; };
 		DDA38812158FAF6600AC339E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA38811158FAF6600AC339E /* icon.png */; };
 		DDD7C5EF159002300061B9F4 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDD7C5EE159002300061B9F4 /* Entitlements.plist */; };
 /* End PBXBuildFile section */
@@ -97,6 +98,7 @@
 		DD930BF215ACFCC90066071A /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		DD9530A5158F933A00E9FD42 /* UIColor+MBWPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MBWPExtensions.h"; sourceTree = "<group>"; };
 		DD9530A6158F933A00E9FD42 /* UIColor+MBWPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MBWPExtensions.m"; sourceTree = "<group>"; };
+		DD9BFE4E1601419B0011F174 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
 		DDA38811158FAF6600AC339E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = SOURCE_ROOT; };
 		DDD7C5EE159002300061B9F4 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -206,6 +208,7 @@
 			children = (
 				DDA38811158FAF6600AC339E /* icon.png */,
 				DD930BF215ACFCC90066071A /* icon@2x.png */,
+				DD9BFE4E1601419B0011F174 /* Default-568h@2x.png */,
 				DD8CD1BB158C2ACC00067C1B /* HeadingAngleSmall.png */,
 				DD8CD1BC158C2ACC00067C1B /* HeadingAngleSmall@2x.png */,
 				DD49B8D515E2DF9D0055CCEE /* LoadingTile.png */,
@@ -320,6 +323,7 @@
 				DD50C8CE15D30BB7006CA033 /* Washington, DC.gpx in Resources */,
 				DD49B8D715E2DF9D0055CCEE /* LoadingTile.png in Resources */,
 				DD49B8D815E2DF9D0055CCEE /* LoadingTileZoom.png in Resources */,
+				DD9BFE4F1601419B0011F174 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
