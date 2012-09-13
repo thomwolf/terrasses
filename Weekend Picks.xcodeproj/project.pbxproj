@@ -39,6 +39,8 @@
 		DD9530A7158F933A00E9FD42 /* UIColor+MBWPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9530A6158F933A00E9FD42 /* UIColor+MBWPExtensions.m */; };
 		DD9BFE4F1601419B0011F174 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9BFE4E1601419B0011F174 /* Default-568h@2x.png */; };
 		DDA38812158FAF6600AC339E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA38811158FAF6600AC339E /* icon.png */; };
+		DDC007131601604100E42892 /* mapbox.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC007111601604100E42892 /* mapbox.png */; };
+		DDC007141601604100E42892 /* mapbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC007121601604100E42892 /* mapbox@2x.png */; };
 		DDD7C5EF159002300061B9F4 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDD7C5EE159002300061B9F4 /* Entitlements.plist */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +102,8 @@
 		DD9530A6158F933A00E9FD42 /* UIColor+MBWPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MBWPExtensions.m"; sourceTree = "<group>"; };
 		DD9BFE4E1601419B0011F174 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
 		DDA38811158FAF6600AC339E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = SOURCE_ROOT; };
+		DDC007111601604100E42892 /* mapbox.png */ = {isa = PBXFileReference; lastKnownFileType = file; name = mapbox.png; path = "../MapBox-iOS-SDK/MapView/Map/Resources/mapbox.png"; sourceTree = "<group>"; };
+		DDC007121601604100E42892 /* mapbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = file; name = "mapbox@2x.png"; path = "../MapBox-iOS-SDK/MapView/Map/Resources/mapbox@2x.png"; sourceTree = "<group>"; };
 		DDD7C5EE159002300061B9F4 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -209,6 +213,8 @@
 				DDA38811158FAF6600AC339E /* icon.png */,
 				DD930BF215ACFCC90066071A /* icon@2x.png */,
 				DD9BFE4E1601419B0011F174 /* Default-568h@2x.png */,
+				DDC007111601604100E42892 /* mapbox.png */,
+				DDC007121601604100E42892 /* mapbox@2x.png */,
 				DD8CD1BB158C2ACC00067C1B /* HeadingAngleSmall.png */,
 				DD8CD1BC158C2ACC00067C1B /* HeadingAngleSmall@2x.png */,
 				DD49B8D515E2DF9D0055CCEE /* LoadingTile.png */,
@@ -324,6 +330,8 @@
 				DD49B8D715E2DF9D0055CCEE /* LoadingTile.png in Resources */,
 				DD49B8D815E2DF9D0055CCEE /* LoadingTileZoom.png in Resources */,
 				DD9BFE4F1601419B0011F174 /* Default-568h@2x.png in Resources */,
+				DDC007131601604100E42892 /* mapbox.png in Resources */,
+				DDC007141601604100E42892 /* mapbox@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
