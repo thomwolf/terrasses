@@ -25,6 +25,8 @@
     
     UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     
+    webView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+
     webView.delegate = self;
     
     [self.view addSubview:webView];
