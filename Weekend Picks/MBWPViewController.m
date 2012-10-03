@@ -19,7 +19,7 @@
 
 #import "UIColor+MBWPExtensions.h"
 
-#define kNormalTileJSONURL [NSURL URLWithString:@"http://a.tiles.mapbox.com/v3/examples.map-8j8lv902.jsonp"]
+#define kNormalTileJSONURL [NSURL URLWithString:@"http://a.tiles.mapbox.com/v3/examples.map-yr0njcqy.jsonp"]
 #define kRetinaTileJSONURL [NSURL URLWithString:@"http://a.tiles.mapbox.com/v3/examples.map-sjm2w6i9.jsonp"]
 #define kTintColorHex      @"#AA0000"
 
