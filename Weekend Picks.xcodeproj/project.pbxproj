@@ -102,8 +102,8 @@
 		DD9530A6158F933A00E9FD42 /* UIColor+MBWPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MBWPExtensions.m"; sourceTree = "<group>"; };
 		DD9BFE4E1601419B0011F174 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
 		DDA38811158FAF6600AC339E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = SOURCE_ROOT; };
-		DDC007111601604100E42892 /* mapbox.png */ = {isa = PBXFileReference; lastKnownFileType = file; name = mapbox.png; path = "../MapBox-iOS-SDK/MapView/Map/Resources/mapbox.png"; sourceTree = "<group>"; };
-		DDC007121601604100E42892 /* mapbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = file; name = "mapbox@2x.png"; path = "../MapBox-iOS-SDK/MapView/Map/Resources/mapbox@2x.png"; sourceTree = "<group>"; };
+		DDC007111601604100E42892 /* mapbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapbox.png; path = "../MapBox-iOS-SDK/MapView/Map/Resources/mapbox.png"; sourceTree = "<group>"; };
+		DDC007121601604100E42892 /* mapbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mapbox@2x.png"; path = "../MapBox-iOS-SDK/MapView/Map/Resources/mapbox@2x.png"; sourceTree = "<group>"; };
 		DDD7C5EE159002300061B9F4 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
