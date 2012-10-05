@@ -8,12 +8,6 @@
 
 #import "MBWPViewController.h"
 
-#import "RMMapView.h"
-#import "RMUserTrackingBarButtonItem.h"
-#import "RMMapBoxSource.h"
-#import "RMAnnotation.h"
-#import "RMMarker.h"
-
 #import "MBWPSearchViewController.h"
 #import "MBWPDetailViewController.h"
 
@@ -129,24 +123,25 @@
     RMMarker *marker = [[RMMarker alloc] initWithMapBoxMarkerImage:[annotation.userInfo objectForKey:@"marker-symbol"]
                                                       tintColorHex:[annotation.userInfo objectForKey:@"marker-color"]
                                                         sizeString:[annotation.userInfo objectForKey:@"marker-size"]];
-    
+
+    marker.canShowCallout = YES;
+
+    marker.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+
     if (self.activeFilterTypes)
         marker.hidden = ! [self.activeFilterTypes containsObject:[annotation.userInfo objectForKey:@"marker-symbol"]];
     
     return marker;
 }
 
-- (void)tapOnAnnotation:(RMAnnotation *)annotation onMap:(RMMapView *)map
+- (void)tapOnCalloutAccessoryControl:(UIControl *)control forAnnotation:(RMAnnotation *)annotation onMap:(RMMapView *)map
 {
-    if ( ! annotation.isUserLocationAnnotation)
-    {
-        MBWPDetailViewController *detailController = [[MBWPDetailViewController alloc] initWithNibName:nil bundle:nil];
-        
-        detailController.detailTitle       = [annotation.userInfo objectForKey:@"title"];
-        detailController.detailDescription = [annotation.userInfo objectForKey:@"description"];
+    MBWPDetailViewController *detailController = [[MBWPDetailViewController alloc] initWithNibName:nil bundle:nil];
 
-        [self.navigationController pushViewController:detailController animated:YES];
-    }
+    detailController.detailTitle       = [annotation.userInfo objectForKey:@"title"];
+    detailController.detailDescription = [annotation.userInfo objectForKey:@"description"];
+
+    [self.navigationController pushViewController:detailController animated:YES];
 }
 
 #pragma mark -

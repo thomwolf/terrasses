@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "RMMapViewDelegate.h"
+#import "MapBox.h"
 
 #import "MBWPSearchViewController.h"
 
