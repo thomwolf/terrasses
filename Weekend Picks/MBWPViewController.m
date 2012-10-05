@@ -68,7 +68,7 @@
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^(void)
     {
-        float degreeRadius = 5000.f / 110000.f; // (5000m / 110km per degree latitude)
+        float degreeRadius = 9000.f / 110000.f; // (9000m / 110km per degree latitude)
         
         CLLocationCoordinate2D centerCoordinate = [((RMMapBoxSource *)self.mapView.tileSource) centerCoordinate];
         
