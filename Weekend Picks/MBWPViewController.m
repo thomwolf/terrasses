@@ -56,8 +56,6 @@
     
     self.mapView.showsUserLocation = YES;
     
-    self.mapView.viewControllerPresentingAttribution = self;
-    
     self.title = [self.mapView.tileSource shortName];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^(void)

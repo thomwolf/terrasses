@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DD49B8D715E2DF9D0055CCEE /* LoadingTile.png in Resources */ = {isa = PBXBuildFile; fileRef = DD49B8D515E2DF9D0055CCEE /* LoadingTile.png */; };
-		DD49B8D815E2DF9D0055CCEE /* LoadingTileZoom.png in Resources */ = {isa = PBXBuildFile; fileRef = DD49B8D615E2DF9D0055CCEE /* LoadingTileZoom.png */; };
 		DD50C8CE15D30BB7006CA033 /* Washington, DC.gpx in Resources */ = {isa = PBXBuildFile; fileRef = DD50C8CD15D30BB7006CA033 /* Washington, DC.gpx */; };
 		DD8CD17C158C27F200067C1B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8CD17B158C27F200067C1B /* UIKit.framework */; };
 		DD8CD17E158C27F200067C1B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8CD17D158C27F200067C1B /* Foundation.framework */; };
@@ -23,24 +21,13 @@
 		DD8CD1B4158C298700067C1B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8CD1B3158C298700067C1B /* libsqlite3.dylib */; };
 		DD8CD1B6158C298B00067C1B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8CD1B5158C298B00067C1B /* libz.dylib */; };
 		DD8CD1B9158C2A7500067C1B /* MBWPSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8CD1B8158C2A7500067C1B /* MBWPSearchViewController.m */; };
-		DD8CD1C5158C2ACC00067C1B /* HeadingAngleSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = DD8CD1BB158C2ACC00067C1B /* HeadingAngleSmall.png */; };
-		DD8CD1C6158C2ACC00067C1B /* HeadingAngleSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD8CD1BC158C2ACC00067C1B /* HeadingAngleSmall@2x.png */; };
-		DD8CD1C7158C2ACC00067C1B /* TrackingDot.png in Resources */ = {isa = PBXBuildFile; fileRef = DD8CD1BD158C2ACC00067C1B /* TrackingDot.png */; };
-		DD8CD1C8158C2ACC00067C1B /* TrackingDot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD8CD1BE158C2ACC00067C1B /* TrackingDot@2x.png */; };
-		DD8CD1C9158C2ACC00067C1B /* TrackingDotHalo.png in Resources */ = {isa = PBXBuildFile; fileRef = DD8CD1BF158C2ACC00067C1B /* TrackingDotHalo.png */; };
-		DD8CD1CA158C2ACC00067C1B /* TrackingDotHalo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD8CD1C0158C2ACC00067C1B /* TrackingDotHalo@2x.png */; };
-		DD8CD1CB158C2ACC00067C1B /* TrackingHeading.png in Resources */ = {isa = PBXBuildFile; fileRef = DD8CD1C1158C2ACC00067C1B /* TrackingHeading.png */; };
-		DD8CD1CC158C2ACC00067C1B /* TrackingHeading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD8CD1C2158C2ACC00067C1B /* TrackingHeading@2x.png */; };
-		DD8CD1CD158C2ACC00067C1B /* TrackingLocation.png in Resources */ = {isa = PBXBuildFile; fileRef = DD8CD1C3158C2ACC00067C1B /* TrackingLocation.png */; };
-		DD8CD1CE158C2ACC00067C1B /* TrackingLocation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD8CD1C4158C2ACC00067C1B /* TrackingLocation@2x.png */; };
-		DD8CD1CF158C2BE900067C1B /* libMapView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8CD1A9158C296000067C1B /* libMapView.a */; };
+		DD8CD1CF158C2BE900067C1B /* libMapBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8CD1A9158C296000067C1B /* libMapBox.a */; };
 		DD8D9582158C4ABB00C4C4C3 /* MBWPDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8D9581158C4ABB00C4C4C3 /* MBWPDetailViewController.m */; };
 		DD930BF315ACFCC90066071A /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD930BF215ACFCC90066071A /* icon@2x.png */; };
 		DD9530A7158F933A00E9FD42 /* UIColor+MBWPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9530A6158F933A00E9FD42 /* UIColor+MBWPExtensions.m */; };
+		DD97C0C916488571007C4652 /* MapBox.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DD97C0951648826C007C4652 /* MapBox.bundle */; };
 		DD9BFE4F1601419B0011F174 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9BFE4E1601419B0011F174 /* Default-568h@2x.png */; };
 		DDA38812158FAF6600AC339E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA38811158FAF6600AC339E /* icon.png */; };
-		DDC007131601604100E42892 /* mapbox.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC007111601604100E42892 /* mapbox.png */; };
-		DDC007141601604100E42892 /* mapbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC007121601604100E42892 /* mapbox@2x.png */; };
 		DDD7C5EF159002300061B9F4 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDD7C5EE159002300061B9F4 /* Entitlements.plist */; };
 /* End PBXBuildFile section */
 
@@ -59,11 +46,16 @@
 			remoteGlobalIDString = B8C974130E8A19B2007D16AD;
 			remoteInfo = MapView;
 		};
+		DD97C0941648826C007C4652 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD8CD199158C295F00067C1B /* MapView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DD6A83751644A20C0097F31F;
+			remoteInfo = Resources;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DD49B8D515E2DF9D0055CCEE /* LoadingTile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LoadingTile.png; path = "MapBox-iOS-SDK/MapView/Map/Resources/LoadingTile.png"; sourceTree = SOURCE_ROOT; };
-		DD49B8D615E2DF9D0055CCEE /* LoadingTileZoom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LoadingTileZoom.png; path = "MapBox-iOS-SDK/MapView/Map/Resources/LoadingTileZoom.png"; sourceTree = SOURCE_ROOT; };
 		DD50C8CD15D30BB7006CA033 /* Washington, DC.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Washington, DC.gpx"; sourceTree = SOURCE_ROOT; };
 		DD8CD177158C27F200067C1B /* Picks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Picks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8CD17B158C27F200067C1B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -85,16 +77,6 @@
 		DD8CD1B5158C298B00067C1B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		DD8CD1B7158C2A7500067C1B /* MBWPSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBWPSearchViewController.h; sourceTree = "<group>"; };
 		DD8CD1B8158C2A7500067C1B /* MBWPSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBWPSearchViewController.m; sourceTree = "<group>"; };
-		DD8CD1BB158C2ACC00067C1B /* HeadingAngleSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HeadingAngleSmall.png; path = "MapBox-iOS-SDK/MapView/Map/Resources/HeadingAngleSmall.png"; sourceTree = SOURCE_ROOT; };
-		DD8CD1BC158C2ACC00067C1B /* HeadingAngleSmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "HeadingAngleSmall@2x.png"; path = "MapBox-iOS-SDK/MapView/Map/Resources/HeadingAngleSmall@2x.png"; sourceTree = SOURCE_ROOT; };
-		DD8CD1BD158C2ACC00067C1B /* TrackingDot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TrackingDot.png; path = "MapBox-iOS-SDK/MapView/Map/Resources/TrackingDot.png"; sourceTree = SOURCE_ROOT; };
-		DD8CD1BE158C2ACC00067C1B /* TrackingDot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TrackingDot@2x.png"; path = "MapBox-iOS-SDK/MapView/Map/Resources/TrackingDot@2x.png"; sourceTree = SOURCE_ROOT; };
-		DD8CD1BF158C2ACC00067C1B /* TrackingDotHalo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TrackingDotHalo.png; path = "MapBox-iOS-SDK/MapView/Map/Resources/TrackingDotHalo.png"; sourceTree = SOURCE_ROOT; };
-		DD8CD1C0158C2ACC00067C1B /* TrackingDotHalo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TrackingDotHalo@2x.png"; path = "MapBox-iOS-SDK/MapView/Map/Resources/TrackingDotHalo@2x.png"; sourceTree = SOURCE_ROOT; };
-		DD8CD1C1158C2ACC00067C1B /* TrackingHeading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TrackingHeading.png; path = "MapBox-iOS-SDK/MapView/Map/Resources/TrackingHeading.png"; sourceTree = SOURCE_ROOT; };
-		DD8CD1C2158C2ACC00067C1B /* TrackingHeading@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TrackingHeading@2x.png"; path = "MapBox-iOS-SDK/MapView/Map/Resources/TrackingHeading@2x.png"; sourceTree = SOURCE_ROOT; };
-		DD8CD1C3158C2ACC00067C1B /* TrackingLocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TrackingLocation.png; path = "MapBox-iOS-SDK/MapView/Map/Resources/TrackingLocation.png"; sourceTree = SOURCE_ROOT; };
-		DD8CD1C4158C2ACC00067C1B /* TrackingLocation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TrackingLocation@2x.png"; path = "MapBox-iOS-SDK/MapView/Map/Resources/TrackingLocation@2x.png"; sourceTree = SOURCE_ROOT; };
 		DD8D9580158C4ABB00C4C4C3 /* MBWPDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBWPDetailViewController.h; sourceTree = "<group>"; };
 		DD8D9581158C4ABB00C4C4C3 /* MBWPDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBWPDetailViewController.m; sourceTree = "<group>"; };
 		DD930BF215ACFCC90066071A /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -102,8 +84,6 @@
 		DD9530A6158F933A00E9FD42 /* UIColor+MBWPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MBWPExtensions.m"; sourceTree = "<group>"; };
 		DD9BFE4E1601419B0011F174 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
 		DDA38811158FAF6600AC339E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = SOURCE_ROOT; };
-		DDC007111601604100E42892 /* mapbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapbox.png; path = "../MapBox-iOS-SDK/MapView/Map/Resources/mapbox.png"; sourceTree = "<group>"; };
-		DDC007121601604100E42892 /* mapbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mapbox@2x.png"; path = "../MapBox-iOS-SDK/MapView/Map/Resources/mapbox@2x.png"; sourceTree = "<group>"; };
 		DDD7C5EE159002300061B9F4 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -117,7 +97,7 @@
 				DD8CD17E158C27F200067C1B /* Foundation.framework in Frameworks */,
 				DD8CD1B2158C298200067C1B /* QuartzCore.framework in Frameworks */,
 				DD8CD17C158C27F200067C1B /* UIKit.framework in Frameworks */,
-				DD8CD1CF158C2BE900067C1B /* libMapView.a in Frameworks */,
+				DD8CD1CF158C2BE900067C1B /* libMapBox.a in Frameworks */,
 				DD8CD1B4158C298700067C1B /* libsqlite3.dylib in Frameworks */,
 				DD8CD1B6158C298B00067C1B /* libz.dylib in Frameworks */,
 			);
@@ -202,7 +182,8 @@
 		DD8CD19A158C295F00067C1B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DD8CD1A9158C296000067C1B /* libMapView.a */,
+				DD8CD1A9158C296000067C1B /* libMapBox.a */,
+				DD97C0951648826C007C4652 /* MapBox.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -213,20 +194,6 @@
 				DDA38811158FAF6600AC339E /* icon.png */,
 				DD930BF215ACFCC90066071A /* icon@2x.png */,
 				DD9BFE4E1601419B0011F174 /* Default-568h@2x.png */,
-				DDC007111601604100E42892 /* mapbox.png */,
-				DDC007121601604100E42892 /* mapbox@2x.png */,
-				DD8CD1BB158C2ACC00067C1B /* HeadingAngleSmall.png */,
-				DD8CD1BC158C2ACC00067C1B /* HeadingAngleSmall@2x.png */,
-				DD49B8D515E2DF9D0055CCEE /* LoadingTile.png */,
-				DD49B8D615E2DF9D0055CCEE /* LoadingTileZoom.png */,
-				DD8CD1BD158C2ACC00067C1B /* TrackingDot.png */,
-				DD8CD1BE158C2ACC00067C1B /* TrackingDot@2x.png */,
-				DD8CD1BF158C2ACC00067C1B /* TrackingDotHalo.png */,
-				DD8CD1C0158C2ACC00067C1B /* TrackingDotHalo@2x.png */,
-				DD8CD1C1158C2ACC00067C1B /* TrackingHeading.png */,
-				DD8CD1C2158C2ACC00067C1B /* TrackingHeading@2x.png */,
-				DD8CD1C3158C2ACC00067C1B /* TrackingLocation.png */,
-				DD8CD1C4158C2ACC00067C1B /* TrackingLocation@2x.png */,
 			);
 			name = Resources;
 			path = "Weekend Picks";
@@ -297,11 +264,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		DD8CD1A9158C296000067C1B /* libMapView.a */ = {
+		DD8CD1A9158C296000067C1B /* libMapBox.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libMapView.a;
+			path = libMapBox.a;
 			remoteRef = DD8CD1A8158C296000067C1B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DD97C0951648826C007C4652 /* MapBox.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MapBox.bundle;
+			remoteRef = DD97C0941648826C007C4652 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -313,25 +287,12 @@
 			files = (
 				DD8CD186158C27F300067C1B /* InfoPlist.strings in Resources */,
 				DD8CD192158C27F300067C1B /* MBWPViewController.xib in Resources */,
-				DD8CD1C5158C2ACC00067C1B /* HeadingAngleSmall.png in Resources */,
-				DD8CD1C6158C2ACC00067C1B /* HeadingAngleSmall@2x.png in Resources */,
-				DD8CD1C7158C2ACC00067C1B /* TrackingDot.png in Resources */,
-				DD8CD1C8158C2ACC00067C1B /* TrackingDot@2x.png in Resources */,
-				DD8CD1C9158C2ACC00067C1B /* TrackingDotHalo.png in Resources */,
-				DD8CD1CA158C2ACC00067C1B /* TrackingDotHalo@2x.png in Resources */,
-				DD8CD1CB158C2ACC00067C1B /* TrackingHeading.png in Resources */,
-				DD8CD1CC158C2ACC00067C1B /* TrackingHeading@2x.png in Resources */,
-				DD8CD1CD158C2ACC00067C1B /* TrackingLocation.png in Resources */,
-				DD8CD1CE158C2ACC00067C1B /* TrackingLocation@2x.png in Resources */,
 				DDA38812158FAF6600AC339E /* icon.png in Resources */,
 				DDD7C5EF159002300061B9F4 /* Entitlements.plist in Resources */,
 				DD930BF315ACFCC90066071A /* icon@2x.png in Resources */,
 				DD50C8CE15D30BB7006CA033 /* Washington, DC.gpx in Resources */,
-				DD49B8D715E2DF9D0055CCEE /* LoadingTile.png in Resources */,
-				DD49B8D815E2DF9D0055CCEE /* LoadingTileZoom.png in Resources */,
 				DD9BFE4F1601419B0011F174 /* Default-568h@2x.png in Resources */,
-				DDC007131601604100E42892 /* mapbox.png in Resources */,
-				DDC007141601604100E42892 /* mapbox@2x.png in Resources */,
+				DD97C0C916488571007C4652 /* MapBox.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
