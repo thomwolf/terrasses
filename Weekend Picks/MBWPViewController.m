@@ -46,6 +46,8 @@
 
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStyleBordered target:nil action:nil];
 
+    // this auto-enables annotations based on simplestyle data for this map (see http://mapbox.com/developers/simplestyle/ for more info)
+    //
     self.mapView.tileSource = [[RMMapBoxSource alloc] initWithReferenceURL:([[UIScreen mainScreen] scale] > 1.0 ? kRetinaTileJSONURL : kNormalTileJSONURL)
                                                      enablingDataOnMapView:self.mapView];
     
@@ -57,7 +59,9 @@
     self.mapView.showsUserLocation = YES;
     
     self.title = [self.mapView.tileSource shortName];
-    
+
+    // zoom in to markers after launch
+    //
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^(void)
     {
         float degreeRadius = 9000.f / 110000.f; // (9000m / 110km per degree latitude)
