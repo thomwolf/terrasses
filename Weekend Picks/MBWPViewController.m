@@ -13,9 +13,9 @@
 
 #import "UIColor+MBWPExtensions.h"
 
-#define kNormalTileJSONURL [NSURL URLWithString:@"http://a.tiles.mapbox.com/v3/examples.map-yr0njcqy.jsonp"]
-#define kRetinaTileJSONURL [NSURL URLWithString:@"http://a.tiles.mapbox.com/v3/examples.map-sjm2w6i9.jsonp"]
-#define kTintColorHex      @"#AA0000"
+#define kNormalMapID  @"examples.map-yr0njcqy"
+#define kRetinaMapID  @"examples.map-sjm2w6i9"
+#define kTintColorHex @"#AA0000"
 
 @interface MBWPViewController ()
 
@@ -48,8 +48,8 @@
 
     // this auto-enables annotations based on simplestyle data for this map (see http://mapbox.com/developers/simplestyle/ for more info)
     //
-    self.mapView.tileSource = [[RMMapBoxSource alloc] initWithReferenceURL:([[UIScreen mainScreen] scale] > 1.0 ? kRetinaTileJSONURL : kNormalTileJSONURL)
-                                                     enablingDataOnMapView:self.mapView];
+    self.mapView.tileSource = [[RMMapBoxSource alloc] initWithMapID:([[UIScreen mainScreen] scale] > 1.0 ? kRetinaMapID : kNormalMapID)
+                                              enablingDataOnMapView:self.mapView];
     
     self.mapView.zoom = 2;
     
