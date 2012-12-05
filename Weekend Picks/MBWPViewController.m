@@ -62,6 +62,8 @@
 
     // zoom in to markers after launch
     //
+    __weak RMMapView *weakMap = self.mapView; // avoid block-based memory leak
+
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^(void)
     {
         float degreeRadius = 9000.f / 110000.f; // (9000m / 110km per degree latitude)
@@ -79,7 +81,7 @@
             }
         };
         
-        [mapView zoomWithLatitudeLongitudeBoundsSouthWest:zoomBounds.southWest
+        [weakMap zoomWithLatitudeLongitudeBoundsSouthWest:zoomBounds.southWest
                                                 northEast:zoomBounds.northEast 
                                                  animated:YES];
     });
