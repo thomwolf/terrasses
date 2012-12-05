@@ -122,6 +122,9 @@
 
 - (RMMapLayer *)mapView:(RMMapView *)mapView layerForAnnotation:(RMAnnotation *)annotation
 {
+    if (annotation.isUserLocationAnnotation)
+        return nil;
+
     RMMarker *marker = [[RMMarker alloc] initWithMapBoxMarkerImage:[annotation.userInfo objectForKey:@"marker-symbol"]
                                                       tintColorHex:[annotation.userInfo objectForKey:@"marker-color"]
                                                         sizeString:[annotation.userInfo objectForKey:@"marker-size"]];
