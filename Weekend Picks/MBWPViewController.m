@@ -101,7 +101,7 @@
             
             [filterTypes addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:
                                        [annotation.userInfo objectForKey:@"marker-symbol"], @"marker-symbol",
-                                       [UIImage imageWithCGImage:(CGImageRef)annotation.layer.contents], @"image",
+                                       [UIImage imageWithCGImage:(CGImageRef)[self mapView:self.mapView layerForAnnotation:annotation].contents], @"image",
                                        [NSNumber numberWithBool:selected], @"selected",
                                        nil]];
         }
@@ -121,6 +121,25 @@
 }
 
 #pragma mark -
+
+- (RMMapLayer *)mapView:(RMMapView *)mapView layerForAnnotation:(RMAnnotation *)annotation
+{
+    if (annotation.isUserLocationAnnotation)
+        return nil;
+
+    RMMarker *marker = [[RMMarker alloc] initWithMapBoxMarkerImage:[annotation.userInfo objectForKey:@"marker-symbol"]
+                                                      tintColorHex:[annotation.userInfo objectForKey:@"marker-color"]
+                                                        sizeString:[annotation.userInfo objectForKey:@"marker-size"]];
+
+    marker.canShowCallout = YES;
+
+    marker.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+
+    if (self.activeFilterTypes)
+        marker.hidden = ! [self.activeFilterTypes containsObject:[annotation.userInfo objectForKey:@"marker-symbol"]];
+    
+    return marker;
+}
 
 - (void)tapOnCalloutAccessoryControl:(UIControl *)control forAnnotation:(RMAnnotation *)annotation onMap:(RMMapView *)map
 {
