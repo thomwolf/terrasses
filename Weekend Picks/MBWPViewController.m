@@ -158,7 +158,8 @@
     self.activeFilterTypes = filterTypes;
     
     for (RMAnnotation *annotation in self.mapView.annotations)
-        annotation.layer.hidden = ! [self.activeFilterTypes containsObject:[annotation.userInfo objectForKey:@"marker-symbol"]];
+        if ( ! annotation.isUserLocationAnnotation)
+            annotation.layer.hidden = ! [self.activeFilterTypes containsObject:[annotation.userInfo objectForKey:@"marker-symbol"]];
 }
 
 @end
