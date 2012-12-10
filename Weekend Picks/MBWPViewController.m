@@ -13,8 +13,8 @@
 
 #import "UIColor+MBWPExtensions.h"
 
-#define kNormalMapID  @"examples.map-yr0njcqy"
-#define kRetinaMapID  @"examples.map-sjm2w6i9"
+#define kNormalMapID  @"examples.map-zr0njcqy"
+#define kRetinaMapID  @"examples.map-zjm2w6i9"
 #define kTintColorHex @"#AA0000"
 
 @interface MBWPViewController ()
