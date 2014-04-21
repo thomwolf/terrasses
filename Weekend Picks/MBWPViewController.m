@@ -11,16 +11,22 @@
 #import "MBWPSearchViewController.h"
 #import "MBWPDetailViewController.h"
 
+#import "NSDictionary+terrasses.h"
+#import "NSDictionary+terrasses_package.h"
 #import "UIColor+MBWPExtensions.h"
 
 #define kNormalMapID  @"examples.map-zr0njcqy"
 #define kRetinaMapID  @"examples.map-zjm2w6i9"
 #define kTintColorHex @"#AA0000"
 
+static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
+
 @interface MBWPViewController ()
 
 @property (strong) IBOutlet RMMapView *mapView;
 @property (strong) NSArray *activeFilterTypes;
+@property (strong) NSDictionary *terrasses;
+@property (nonatomic, assign) RMSphericalTrapezium startbounds;
 
 @end
 
@@ -30,6 +36,7 @@
 
 @synthesize mapView;
 @synthesize activeFilterTypes;
+@synthesize terrasses;
 
 - (void)viewDidLoad
 {
@@ -51,7 +58,9 @@
     self.mapView.tileSource = [[RMMapBoxSource alloc] initWithMapID:([[UIScreen mainScreen] scale] > 1.0 ? kRetinaMapID : kNormalMapID)
                                               enablingDataOnMapView:self.mapView];
     
-    self.mapView.zoom = 2;
+    self.mapView.zoom = 16;
+    
+    self.mapView.userTrackingMode = RMUserTrackingModeFollow;
     
     [self.mapView setConstraintsSouthWest:[self.mapView.tileSource latitudeLongitudeBoundingBox].southWest 
                                 northEast:[self.mapView.tileSource latitudeLongitudeBoundingBox].northEast];
@@ -63,6 +72,67 @@
     // zoom in to markers after launch
     //
     __weak RMMapView *weakMap = self.mapView; // avoid block-based memory leak
+
+    // 1
+    NSString *string = [NSString stringWithFormat:@"%@position2.php", BaseURLString];
+    //NSURL *url = [NSURL URLWithString:string];
+   
+    /*            LON1s: boundsstart.getWest(),
+     LON2s: boundsstart.getEast(),
+     LAT1s: boundsstart.getSouth(),
+     LAT2s: boundsstart.getNorth(),
+     //limites (longitutde, latitude) de la fenêtre d'arrivée (par exemple initialisé au limites de la fenêtre pour le premier appel
+     LON1e: boundsend.getWest(), //position.coords.latitude,
+     LON2e: boundsend.getEast(),
+     LAT1e: boundsend.getSouth(),
+     LAT2e: boundsend.getNorth(), //position.coords.latitude,
+     //centre (longitutde, latitude) de la fenêtre arrivée (pas trop utilisé mais en fait les terrasses sont classées par distance au centre
+     lat: center.lat, //position.coords.latitude,
+     lon: center.lng,
+     // Pour spécifier la fonction du php utilisée
+     type: "move"
+*/
+    NSDictionary *parameters = @{@"type": @"move",
+                                 @"LON1s": [NSString stringWithFormat:@"%f", self.mapView.centerCoordinate.longitude],
+                                     @"LON2s": [NSString stringWithFormat:@"%f",self.mapView.centerCoordinate.longitude],
+                                 @"LAT1s": [NSString stringWithFormat:@"%f",self.mapView.centerCoordinate.latitude ],
+                                 @"LAT2s": [NSString stringWithFormat:@"%f",self.mapView.centerCoordinate.latitude ],
+                                 @"LON1s": [NSString stringWithFormat:@"%f",self.mapView.latitudeLongitudeBoundingBox.southWest.longitude ],
+                                 @"LAT1s": [NSString stringWithFormat:@"%f",self.mapView.latitudeLongitudeBoundingBox.southWest.latitude ],
+                                 @"LON2s": [NSString stringWithFormat:@"%f",self.mapView.latitudeLongitudeBoundingBox.northEast.longitude ],
+                                 @"LAT2s": [NSString stringWithFormat:@"%f",self.mapView.latitudeLongitudeBoundingBox.northEast.latitude ],
+                                 };
+    //self.mapView.latitudeLongitudeBoundingBox.northEast.longitude
+    NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:string parameters:parameters error:nil];
+    
+    //NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    // 2
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    NSLog([request debugDescription]);
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+    // 3
+            self.terrasses = (NSDictionary *)responseObject;
+            self.title = @"JSON Retrieved";
+        NSLog(responseObject);
+    //        [self.tableView reloadData];
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+            // 4
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather"
+                                                                message:[error localizedDescription]
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"Ok"
+                                                      otherButtonTitles:nil];
+            [alertView show];
+    }];
+    
+    // 5
+    [operation start];
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^(void)
     {
@@ -121,6 +191,21 @@
 }
 
 #pragma mark -
+
+/** When a map is about to move.
+ *   @param map The map view that is about to move.
+ *   @param wasUserAction A Boolean indicating whether the map move is in response to a user action or not. */
+- (void)beforeMapMove:(RMMapView *)map byUser:(BOOL)wasUserAction
+{
+    
+};
+
+/** When a map has finished moving.
+ *   @param map The map view that has finished moving.
+ *   @param wasUserAction A Boolean indicating whether the map move was in response to a user action or not. */
+- (void)afterMapMove:(RMMapView *)map byUser:(BOOL)wasUserAction{
+    
+};
 
 - (RMMapLayer *)mapView:(RMMapView *)mapView layerForAnnotation:(RMAnnotation *)annotation
 {
