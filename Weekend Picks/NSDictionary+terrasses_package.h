@@ -11,10 +11,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSDictionary (weather_package)
+@interface NSDictionary (terrasses_package)
 
--(NSDictionary *)currentCondition;
--(NSDictionary *)request;
--(NSArray *)upcomingWeather;
+-(NSNumber *)first_time;
+-(NSArray *)tableau;
+//-(NSArray *)upcomingWeather;
 
 @end

@@ -15,8 +15,8 @@
 #import "NSDictionary+terrasses_package.h"
 #import "UIColor+MBWPExtensions.h"
 
-#define kNormalMapID  @"examples.map-zr0njcqy"
-#define kRetinaMapID  @"examples.map-zjm2w6i9"
+#define kNormalMapID  @"thomwolf.hkfl24gn"
+#define kRetinaMapID  @"thomwolf.hkfl24gn"
 #define kTintColorHex @"#AA0000"
 
 static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
@@ -26,7 +26,9 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
 @property (strong) IBOutlet RMMapView *mapView;
 @property (strong) NSArray *activeFilterTypes;
 @property (strong) NSDictionary *terrasses;
-@property (nonatomic, assign) RMSphericalTrapezium startbounds;
+@property (nonatomic, assign) RMSphericalTrapezium boundsstart;
+@property (nonatomic, assign) BOOL readyToQueryMarkers;
+@property (strong) NSMutableArray *numarray;
 
 @end
 
@@ -37,6 +39,7 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
 @synthesize mapView;
 @synthesize activeFilterTypes;
 @synthesize terrasses;
+@synthesize numarray;
 
 - (void)viewDidLoad
 {
@@ -59,11 +62,17 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
                                               enablingDataOnMapView:self.mapView];
     
     self.mapView.zoom = 16;
+    self.mapView.minZoom = 16;
+    /** Contrain zooming and panning of the map view to a given coordinate boundary.
+     *   @param southWest The southwest point to constrain to.
+     *   @param northEast The northeast point to constrain to. */
+    [self.mapView setConstraintsSouthWest:(CLLocationCoordinate2D) {.latitude= 48.788092642076286, .longitude= 2.1996688842773433}
+                                northEast:(CLLocationCoordinate2D) {.latitude=48.926108577622024, .longitude=2.4757003784179683} ];
     
     self.mapView.userTrackingMode = RMUserTrackingModeFollow;
     
-    [self.mapView setConstraintsSouthWest:[self.mapView.tileSource latitudeLongitudeBoundingBox].southWest 
-                                northEast:[self.mapView.tileSource latitudeLongitudeBoundingBox].northEast];
+//    [self.mapView setConstraintsSouthWest:[self.mapView.tileSource latitudeLongitudeBoundingBox].southWest
+//                                northEast:[self.mapView.tileSource latitudeLongitudeBoundingBox].northEast];
     
     self.mapView.showsUserLocation = YES;
     
@@ -72,67 +81,6 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
     // zoom in to markers after launch
     //
     __weak RMMapView *weakMap = self.mapView; // avoid block-based memory leak
-
-    // 1
-    NSString *string = [NSString stringWithFormat:@"%@position2.php", BaseURLString];
-    //NSURL *url = [NSURL URLWithString:string];
-   
-    /*            LON1s: boundsstart.getWest(),
-     LON2s: boundsstart.getEast(),
-     LAT1s: boundsstart.getSouth(),
-     LAT2s: boundsstart.getNorth(),
-     //limites (longitutde, latitude) de la fenêtre d'arrivée (par exemple initialisé au limites de la fenêtre pour le premier appel
-     LON1e: boundsend.getWest(), //position.coords.latitude,
-     LON2e: boundsend.getEast(),
-     LAT1e: boundsend.getSouth(),
-     LAT2e: boundsend.getNorth(), //position.coords.latitude,
-     //centre (longitutde, latitude) de la fenêtre arrivée (pas trop utilisé mais en fait les terrasses sont classées par distance au centre
-     lat: center.lat, //position.coords.latitude,
-     lon: center.lng,
-     // Pour spécifier la fonction du php utilisée
-     type: "move"
-*/
-    NSDictionary *parameters = @{@"type": @"move",
-                                 @"LON1s": [NSString stringWithFormat:@"%f", self.mapView.centerCoordinate.longitude],
-                                     @"LON2s": [NSString stringWithFormat:@"%f",self.mapView.centerCoordinate.longitude],
-                                 @"LAT1s": [NSString stringWithFormat:@"%f",self.mapView.centerCoordinate.latitude ],
-                                 @"LAT2s": [NSString stringWithFormat:@"%f",self.mapView.centerCoordinate.latitude ],
-                                 @"LON1s": [NSString stringWithFormat:@"%f",self.mapView.latitudeLongitudeBoundingBox.southWest.longitude ],
-                                 @"LAT1s": [NSString stringWithFormat:@"%f",self.mapView.latitudeLongitudeBoundingBox.southWest.latitude ],
-                                 @"LON2s": [NSString stringWithFormat:@"%f",self.mapView.latitudeLongitudeBoundingBox.northEast.longitude ],
-                                 @"LAT2s": [NSString stringWithFormat:@"%f",self.mapView.latitudeLongitudeBoundingBox.northEast.latitude ],
-                                 };
-    //self.mapView.latitudeLongitudeBoundingBox.northEast.longitude
-    NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:string parameters:parameters error:nil];
-    
-    //NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    // 2
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-    
-    NSLog([request debugDescription]);
-    
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-    // 3
-            self.terrasses = (NSDictionary *)responseObject;
-            self.title = @"JSON Retrieved";
-        NSLog(responseObject);
-    //        [self.tableView reloadData];
-            
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            
-            // 4
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather"
-                                                                message:[error localizedDescription]
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"Ok"
-                                                      otherButtonTitles:nil];
-            [alertView show];
-    }];
-    
-    // 5
-    [operation start];
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^(void)
     {
@@ -192,19 +140,193 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
 
 #pragma mark -
 
+/** Tells the delegate that the location of the user was updated.
+ *
+ *   While the showsUserLocation property is set to YES, this method is called whenever a new location update is received by the map view. This method is also called if the map view’s user tracking mode is set to RMUserTrackingModeFollowWithHeading and the heading changes.
+ *
+ *   This method is not called if the application is currently running in the background. If you want to receive location updates while running in the background, you must use the Core Location framework.
+ *   @param mapView The map view that is tracking the user’s location.
+ *   @param userLocation The location object representing the user’s latest location. */
+- (void)mapView:(RMMapView *)mapView didUpdateUserLocation:(RMUserLocation *)userLocation
+{
+    if(!self.readyToQueryMarkers)
+    {
+        self.readyToQueryMarkers = YES;
+    }
+};
+
 /** When a map is about to move.
- *   @param map The map view that is about to move.
+ *   @param mapView The map view that is about to move.
  *   @param wasUserAction A Boolean indicating whether the map move is in response to a user action or not. */
 - (void)beforeMapMove:(RMMapView *)map byUser:(BOOL)wasUserAction
 {
-    
+	if (self.readyToQueryMarkers && wasUserAction)
+	{
+        self.boundsstart = map.latitudeLongitudeBoundingBox;
+        NSLog([NSString stringWithFormat:@"%f",self.boundsstart.northEast.latitude]);
+    }
 };
 
 /** When a map has finished moving.
  *   @param map The map view that has finished moving.
  *   @param wasUserAction A Boolean indicating whether the map move was in response to a user action or not. */
 - (void)afterMapMove:(RMMapView *)map byUser:(BOOL)wasUserAction{
-    
+	if (self.readyToQueryMarkers && wasUserAction)
+	{
+        RMSphericalTrapezium boundsend = map.latitudeLongitudeBoundingBox;
+        CLLocationCoordinate2D center= map.centerCoordinate;
+        
+        // 1
+        NSString *string = [NSString stringWithFormat:@"%@position2.php", BaseURLString];
+        //NSURL *url = [NSURL URLWithString:string];
+        
+        /*            LON1s: boundsstart.getWest(),
+         LON2s: boundsstart.getEast(),
+         LAT1s: boundsstart.getSouth(),
+         LAT2s: boundsstart.getNorth(),
+         //limites (longitutde, latitude) de la fenêtre d'arrivée (par exemple initialisé au limites de la fenêtre pour le premier appel
+         LON1e: boundsend.getWest(), //position.coords.latitude,
+         LON2e: boundsend.getEast(),
+         LAT1e: boundsend.getSouth(),
+         LAT2e: boundsend.getNorth(), //position.coords.latitude,
+         //centre (longitutde, latitude) de la fenêtre arrivée (pas trop utilisé mais en fait les terrasses sont classées par distance au centre
+         lat: center.lat, //position.coords.latitude,
+         lon: center.lng,
+         // Pour spécifier la fonction du php utilisée
+         type: "move"
+         */
+        NSDictionary *parameters = @{@"type": @"move",
+                                     @"LON1s": [NSString stringWithFormat:@"%f", self.boundsstart.southWest.longitude],
+                                     @"LON2s": [NSString stringWithFormat:@"%f",self.boundsstart.northEast.longitude],
+                                     @"LAT1s": [NSString stringWithFormat:@"%f",self.boundsstart.southWest.latitude ],
+                                     @"LAT2s": [NSString stringWithFormat:@"%f",self.boundsstart.northEast.latitude ],
+/*                                     @"LON1s": [NSString stringWithFormat:@"%f", center.longitude],
+                                     @"LON2s": [NSString stringWithFormat:@"%f",center.longitude],
+                                     @"LAT1s": [NSString stringWithFormat:@"%f",center.latitude ],
+                                     @"LAT2s": [NSString stringWithFormat:@"%f",center.latitude ],*/
+                                     @"LON1e": [NSString stringWithFormat:@"%f",boundsend.southWest.longitude ],
+                                     @"LAT1e": [NSString stringWithFormat:@"%f",boundsend.southWest.latitude ],
+                                     @"LON2e": [NSString stringWithFormat:@"%f",boundsend.northEast.longitude ],
+                                     @"LAT2e": [NSString stringWithFormat:@"%f",boundsend.northEast.latitude ],
+                                     @"lon": [NSString stringWithFormat:@"%f",center.longitude ],
+                                     @"lat": [NSString stringWithFormat:@"%f",center.latitude ]
+                                     };
+        //self.mapView.latitudeLongitudeBoundingBox.northEast.longitude
+        NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:string parameters:parameters error:nil];
+        
+        //NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        // 2
+        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+        operation.responseSerializer = [AFJSONResponseSerializer serializer];
+        
+        NSLog([request debugDescription]);
+        
+        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+            // 3
+            self.terrasses = (NSDictionary *)responseObject;
+            NSLog(self.terrasses.description);
+           
+           /* NSNumber * first_time = [self.terrasses first_time];
+            NSLog(first_time.description);
+            NSNumber * nexttime = first_time;
+            
+            NSArray * tableau = [self.terrasses tableau];//['tableau'];
+            NSEnumerator * enumerator =  [tableau objectEnumerator]; // Vous n'êtes pas propriétaire de enumerator
+            
+            //NSArray * markersarray = new Array();
+            NSDictionary * place;
+            
+            while (place = [enumerator nextObject]) { // On boucle tant que la méthode ne renvoie pas nil (ce qui casse la condition)
+                if ([place latitude] && [place longitude])
+                {
+                    //				console.debug(numarray.indexOf(place.num));
+                    if ([numarray containsObject:[place num]])
+                    {
+                        [numarray addObject:[place num]];
+                        
+                        // Create an element to hold all your text and markup
+                        ///var container = $('<div />');
+                        
+                        // Delegate all event handling for the container itself and its contents to the container
+                        container.on('click', '.placeclick', function() {
+                            //						console.debug(this, this.title);
+                            var url = http://terrasses.alwaysdata.net/position2.php;
+                            var numero = this.id;
+                            $.getJSON( url, {
+                            num: numero,
+                            type: "marker"//position.coords.longitude,
+                                //			date: strDateTime
+                            },
+                                      function(data) {
+                                          displayTerrassesInfo(numero, data);
+                                      });
+                        });
+                        
+                        //if ([place nombresoleil] != 0)
+                        //{
+                            
+                            [mapView addAnnotation:[RMAnnotation annotationWithMapView:mapView coordinate:CLLocationCoordinate2DMake([[place latitude] doubleValue], [[place longitude] doubleValue]) andTitle:nil]];
+
+                            var marker = new L.marker([place.latitude, place.longitude], {icon: sunIcon, num: place.num, sunny : true});//.bindPopup(insidehtml); //place.placename_ter+"<br/>"+place.address+"<br/>"+place.zip);
+                            if (place.timenext)
+                            {
+                                nexttime = first_time+parseInt(place.timenext);
+                                
+                                container.html("<div id='"+place.num+"' title='"+place.placename_ter+"' class='placeclick'><span class='placedraw placeset'>"+nexttime+"h - "+place.placename_ter+"</span></div>");
+                            }
+                        } else {
+                            var marker = new L.marker([place.latitude, place.longitude], {icon: shadowIcon, num: place.num, sunny : false});//.bindPopup(insidehtml); //place.placename_ter+"<br/>"+place.address+"<br/>"+place.zip);
+                            if (place.timenext)
+                            {
+                                nexttime = first_time+parseInt(place.timenext);
+                                
+                                container.html("<div id='"+place.num+"' title='"+place.placename_ter+"' class='placeclick'><span class='placedraw placerise'>"+nexttime+"h - "+place.placename_ter+"</span></div>");
+                            } 
+                        }
+                        if ([place timenext] == nil) {
+                            container.html("<div id='"+place.num+"' title='"+place.placename_ter+"' class='placeclick'><a class='placedraw'>"+place.placename_ter+"</a></div>");
+                        }
+                        //				console.debug(marker);
+                        // Insert the container into the popup
+                        marker.bindPopup(container[0], {maxWidth : 500});
+                        
+                        markersarray.push(marker);
+                    }
+                }
+                //			if (place.nombresoleil == 0) {
+                //				
+                //			} else {
+                //				L.marker(locationlatLng, {icon: sunIcon}).addTo(map).bindPopup(place.placename_ter+"<br/>"+place.address+"<br/>"+place.zip);
+                //			}
+            }
+            //		console.debug(numarray);
+            //markers1.addLayers(markersarray);
+            //		console.debug(markers1);
+            //		map.addLayer(markers2);
+
+            */
+            
+            
+            
+            
+            //self.title = @"JSON Retrieved";
+            //        [self.tableView reloadData];
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+            // 4
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather"
+                                                                message:[error localizedDescription]
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"Ok"
+                                                      otherButtonTitles:nil];
+            [alertView show];
+        }];
+        
+        // 5
+        [operation start];
+    }
 };
 
 - (RMMapLayer *)mapView:(RMMapView *)mapView layerForAnnotation:(RMAnnotation *)annotation

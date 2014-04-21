@@ -11,26 +11,25 @@
 
 #import "NSDictionary+terrasses_package.h"
 
-@implementation NSDictionary (weather_package)
+@implementation NSDictionary (terrasses_package)
 
-- (NSDictionary *)currentCondition
+- (NSNumber *)first_time
 {
-    NSDictionary *dict = self[@"data"];
-    NSArray *ar = dict[@"current_condition"];
-    return ar[0];
+    NSArray *ar = self[@"first_time"];
+    NSDictionary *dict = ar[0];
+    return dict[@"time_value"];
 }
 
-- (NSDictionary *)request
+- (NSArray *)tableau
 {
-    NSDictionary *dict = self[@"data"];
-    NSArray *ar = dict[@"request"];
-    return ar[0];
+    NSArray *ar = self[@"tableau"];
+    return ar;
 }
 
-- (NSArray *)upcomingWeather
+/*- (NSArray *)upcomingWeather
 {
     NSDictionary *dict = self[@"data"];
     return dict[@"weather"];
-}
+}*/
 
 @end

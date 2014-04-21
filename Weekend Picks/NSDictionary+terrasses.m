@@ -10,9 +10,64 @@
 
 #import "NSDictionary+terrasses.h"
 
-@implementation NSDictionary (weather)
+@implementation NSDictionary (terrasses)
 
-- (NSNumber *)cloudCover
+- (NSNumber *)num
+{
+    NSString *cc = self[@"num"];
+    NSNumber *n = @([cc intValue]);
+    return n;
+};
+- (NSString *)address
+{
+    return self[@"address"];
+};
+- (NSNumber *)zip
+{
+    NSString *cc = self[@"zip"];
+    NSNumber *n = @([cc intValue]);
+    return n;
+};
+- (NSString *)dosred_type
+{
+    return self[@"dosred_type"];
+};
+- (NSNumber *)longitude
+{
+    NSString *cc = self[@"longitude"];
+    NSNumber *n = @([cc doubleValue]);
+    return n;
+};
+- (NSNumber *)latitude
+{
+    NSString *cc = self[@"longitude"];
+    NSNumber *n = @([cc doubleValue]);
+    return n;
+};
+- (NSString *)placename_ter
+{
+    return self[@"placename_ter"];
+};
+- (NSNumber *)nombretot
+{
+    NSString *cc = self[@"nombretot"];
+    NSNumber *n = @([cc intValue]);
+    return n;
+};
+- (NSNumber *)nombresoleil
+{
+    NSString *cc = self[@"nombresoleil"];
+    NSNumber *n = @([cc intValue]);
+    return n;
+};
+- (NSNumber *)time_num
+{
+    NSString *cc = self[@"time_num"];
+    NSNumber *n = @([cc intValue]);
+    return n;
+};
+
+/*- (NSNumber *)cloudCover
 {
     NSString *cc = self[@"cloudcover"];
     NSNumber *n = @([cc intValue]);
@@ -147,6 +202,6 @@
     NSString *cc = self[@"tempMinF"];
     NSNumber *n = @([cc intValue]);
     return n;
-}
+}*/
 
 @end
