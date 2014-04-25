@@ -6,32 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Weekend Picks/MBWPViewController.m"
-            timestampString = "419811326.938295"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
-            landmarkName = "-beforeMapMove:byUser:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Weekend Picks/NSDictionary+terrasses_package.m"
-            timestampString = "419810143.856091"
+            filePath = "Weekend Picks/NSDictionary+terrasses.m"
+            timestampString = "420018501.718897"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "-first_time"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "-num"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

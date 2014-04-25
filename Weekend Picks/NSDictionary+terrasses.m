@@ -15,7 +15,9 @@
 - (NSNumber *)num
 {
     NSString *cc = self[@"num"];
+    NSLog(cc.description);
     NSNumber *n = @([cc intValue]);
+    NSLog([NSString stringWithFormat:@"n: %d", n.intValue]);
     return n;
 };
 - (NSString *)address
@@ -40,7 +42,7 @@
 };
 - (NSNumber *)latitude
 {
-    NSString *cc = self[@"longitude"];
+    NSString *cc = self[@"latitude"];
     NSNumber *n = @([cc doubleValue]);
     return n;
 };

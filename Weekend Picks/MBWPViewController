@@ -36,7 +36,7 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
 
 @implementation MBWPViewController
 
-/* @synthesize mapView;
+/*@synthesize mapView;
  @synthesize activeFilterTypes;
  @synthesize terrasses;
  @synthesize numarray;*/
@@ -81,11 +81,30 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
     [self.mapView setCenterCoordinate:(CLLocationCoordinate2D) {48.8472876, 2.3482246}];
     [self.mapView setZoom:17];
     
-    _numarray = [[NSMutableArray alloc] init];
+    //    __weak RMMapView *map = self.mapView; // avoid block-based memory leak
     
     RMSphericalTrapezium boundsend = self.mapView.latitudeLongitudeBoundingBox;
     CLLocationCoordinate2D center= self.mapView.centerCoordinate;
-
+    
+    // 1
+    NSString *string = [NSString stringWithFormat:@"%@position2.php", BaseURLString];
+    //NSURL *url = [NSURL URLWithString:string];
+    
+    /*            LON1s: boundsstart.getWest(),
+     LON2s: boundsstart.getEast(),
+     LAT1s: boundsstart.getSouth(),
+     LAT2s: boundsstart.getNorth(),
+     //limites (longitutde, latitude) de la fenêtre d'arrivée (par exemple initialisé au limites de la fenêtre pour le premier appel
+     LON1e: boundsend.getWest(), //position.coords.latitude,
+     LON2e: boundsend.getEast(),
+     LAT1e: boundsend.getSouth(),
+     LAT2e: boundsend.getNorth(), //position.coords.latitude,
+     //centre (longitutde, latitude) de la fenêtre arrivée (pas trop utilisé mais en fait les terrasses sont classées par distance au centre
+     lat: center.lat, //position.coords.latitude,
+     lon: center.lng,
+     // Pour spécifier la fonction du php utilisée
+     type: "move"*/
+    
     NSDictionary *parameters = @{@"type": @"move",
                                  /*                              @"LON1s": [NSString stringWithFormat:@"%f", self.boundsstart.southWest.longitude],
                                   @"LON2s": [NSString stringWithFormat:@"%f",self.boundsstart.northEast.longitude],
@@ -102,45 +121,11 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
                                  @"lon": [NSString stringWithFormat:@"%f",center.longitude ],
                                  @"lat": [NSString stringWithFormat:@"%f",center.latitude ]
                                  };
-    [self getAndAddTerrassesWithParameters:parameters];
-    self.readyToQueryMarkers = YES;
-    //    __weak RMMapView *map = self.mapView; // avoid block-based memory leak
-    
-    
-    // zoom in to markers after launch
-    //
-    /*   __weak RMMapView *weakMap = self.mapView; // avoid block-based memory leak
-     
-     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^(void)
-     {
-     float degreeRadius = 9000.f / 110000.f; // (9000m / 110km per degree latitude)
-     
-     CLLocationCoordinate2D centerCoordinate = [((RMMapBoxSource *)self.mapView.tileSource) centerCoordinate];
-     
-     RMSphericalTrapezium zoomBounds = {
-     .southWest = {
-     .latitude  = centerCoordinate.latitude  - degreeRadius,
-     .longitude = centerCoordinate.longitude - degreeRadius
-     },
-     .northEast = {
-     .latitude  = centerCoordinate.latitude  + degreeRadius,
-     .longitude = centerCoordinate.longitude + degreeRadius
-     }
-     };
-     
-     [weakMap zoomWithLatitudeLongitudeBoundsSouthWest:zoomBounds.southWest
-     northEast:zoomBounds.northEast
-     animated:YES];
-     });*/
-}
-
-- (void)getAndAddTerrassesWithParameters:(NSDictionary *)parameters {
-    
-    // 1
-    NSString *string = [NSString stringWithFormat:@"%@position2.php", BaseURLString];
-
+    //self.mapView.latitudeLongitudeBoundingBox.northEast.longitude
     NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:string parameters:parameters error:nil];
     
+    //NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    // 2
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
     
@@ -170,15 +155,13 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
             if ([place latitude] && [place longitude])
             {
                 NSLog(@"ok lat long");
-//                NSLog([place latitude].description);
+//                NSLog([place latitude]);
                 //				console.debug(numarray.indexOf(place.num));
-//                NSNumber * num = [place num];
-                if (![self.numarray containsObject:place])
+                if (![self.numarray containsObject:[place num]])
                 {
                     NSLog(@"ok pas dans numarray");
-                    [self.numarray addObject:place];
-//                    NSLog([NSString stringWithFormat:@"numarray: %@", self.numarray.description]);
-                   
+                    [self.numarray addObject:[place num]];
+                    
                     // Create an element to hold all your text and markup
                     ///var container = $('<div />');
                     
@@ -200,18 +183,10 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
                     //if ([place nombresoleil] != 0)
                     //{
                     RMAnnotation * marker;
-                    CLLocationCoordinate2D markercoord = CLLocationCoordinate2DMake([[place latitude] doubleValue], [[place longitude] doubleValue]);
-                    NSLog([NSString stringWithFormat:@"%f, %f",markercoord.latitude, markercoord.longitude]);
-                    
-                    marker = [RMAnnotation annotationWithMapView:self.mapView coordinate:markercoord andTitle:nil];
-                    
-                    //marker.userInfo = place;
-//                    NSArray * userinfo =
-                    [marker setUserInfo:place];
-                    
+                    marker = [RMAnnotation annotationWithMapView:self.mapView coordinate:CLLocationCoordinate2DMake([[place latitude] doubleValue], [[place longitude] doubleValue]) andTitle:nil];
                     [self.mapView addAnnotation:marker];
-                    NSLog(marker.description);
                     NSLog(@"ok ajouté le marker");
+                    NSLog(marker.description);
                     //var marker = new L.marker([place.latitude, place.longitude], {icon: sunIcon, num: place.num, sunny : true});//.bindPopup(insidehtml); //place.placename_ter+"<br/>"+place.address+"<br/>"+place.zip);
                     /*if (place.timenext)
                      {
@@ -236,8 +211,6 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
                     // marker.bindPopup(container[0], {maxWidth : 500});
                     
                     //markersarray.push(marker);
-                } else {
-                NSLog(@"déjà dans numarray");
                 }
             }
             //			if (place.nombresoleil == 0) {
@@ -272,6 +245,32 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
     
     // 5
     [operation start];
+    
+    // zoom in to markers after launch
+    //
+    /*   __weak RMMapView *weakMap = self.mapView; // avoid block-based memory leak
+     
+     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^(void)
+     {
+     float degreeRadius = 9000.f / 110000.f; // (9000m / 110km per degree latitude)
+     
+     CLLocationCoordinate2D centerCoordinate = [((RMMapBoxSource *)self.mapView.tileSource) centerCoordinate];
+     
+     RMSphericalTrapezium zoomBounds = {
+     .southWest = {
+     .latitude  = centerCoordinate.latitude  - degreeRadius,
+     .longitude = centerCoordinate.longitude - degreeRadius
+     },
+     .northEast = {
+     .latitude  = centerCoordinate.latitude  + degreeRadius,
+     .longitude = centerCoordinate.longitude + degreeRadius
+     }
+     };
+     
+     [weakMap zoomWithLatitudeLongitudeBoundsSouthWest:zoomBounds.southWest
+     northEast:zoomBounds.northEast
+     animated:YES];
+     });*/
 }
 
 #pragma mark -
@@ -342,59 +341,6 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
 - (void)afterMapMove:(RMMapView *)map byUser:(BOOL)wasUserAction{
 	if (self.readyToQueryMarkers && wasUserAction)
 	{
-        RMSphericalTrapezium boundsend = self.mapView.latitudeLongitudeBoundingBox;
-        CLLocationCoordinate2D center= self.mapView.centerCoordinate;
-        
-        NSDictionary *parameters = @{@"type": @"move",
-                                     @"LON1s": [NSString stringWithFormat:@"%f", self.boundsstart.southWest.longitude],
-                                      @"LON2s": [NSString stringWithFormat:@"%f",self.boundsstart.northEast.longitude],
-                                      @"LAT1s": [NSString stringWithFormat:@"%f",self.boundsstart.southWest.latitude ],
-                                      @"LAT2s": [NSString stringWithFormat:@"%f",self.boundsstart.northEast.latitude ],
-                                      @"LON1e": [NSString stringWithFormat:@"%f",boundsend.southWest.longitude ],
-                                     @"LAT1e": [NSString stringWithFormat:@"%f",boundsend.southWest.latitude ],
-                                     @"LON2e": [NSString stringWithFormat:@"%f",boundsend.northEast.longitude ],
-                                     @"LAT2e": [NSString stringWithFormat:@"%f",boundsend.northEast.latitude ],
-                                     @"lon": [NSString stringWithFormat:@"%f",center.longitude ],
-                                     @"lat": [NSString stringWithFormat:@"%f",center.latitude ]
-                                     };
-        [self getAndAddTerrassesWithParameters:parameters];
-    }
-};
-
-/** When a map is about to move.
- *   @param mapView The map view that is about to move.
- *   @param wasUserAction A Boolean indicating whether the map move is in response to a user action or not. */
-- (void)beforeMapZoom:(RMMapView *)map byUser:(BOOL)wasUserAction
-{
-	if (self.readyToQueryMarkers && wasUserAction)
-	{
-        self.boundsstart = map.latitudeLongitudeBoundingBox;
-        NSLog([NSString stringWithFormat:@"%f",self.boundsstart.northEast.latitude]);
-    }
-};
-
-/** When a map has finished moving.
- *   @param map The map view that has finished moving.
- *   @param wasUserAction A Boolean indicating whether the map move was in response to a user action or not. */
-- (void)afterMapZoom:(RMMapView *)map byUser:(BOOL)wasUserAction:(RMMapView *)map byUser:(BOOL)wasUserAction{
-	if (self.readyToQueryMarkers && wasUserAction)
-	{
-        RMSphericalTrapezium boundsend = self.mapView.latitudeLongitudeBoundingBox;
-        CLLocationCoordinate2D center= self.mapView.centerCoordinate;
-        
-        NSDictionary *parameters = @{@"type": @"move",
-                                     @"LON1s": [NSString stringWithFormat:@"%f", self.boundsstart.southWest.longitude],
-                                     @"LON2s": [NSString stringWithFormat:@"%f",self.boundsstart.northEast.longitude],
-                                     @"LAT1s": [NSString stringWithFormat:@"%f",self.boundsstart.southWest.latitude ],
-                                     @"LAT2s": [NSString stringWithFormat:@"%f",self.boundsstart.northEast.latitude ],
-                                     @"LON1e": [NSString stringWithFormat:@"%f",boundsend.southWest.longitude ],
-                                     @"LAT1e": [NSString stringWithFormat:@"%f",boundsend.southWest.latitude ],
-                                     @"LON2e": [NSString stringWithFormat:@"%f",boundsend.northEast.longitude ],
-                                     @"LAT2e": [NSString stringWithFormat:@"%f",boundsend.northEast.latitude ],
-                                     @"lon": [NSString stringWithFormat:@"%f",center.longitude ],
-                                     @"lat": [NSString stringWithFormat:@"%f",center.latitude ]
-                                     };
-        [self getAndAddTerrassesWithParameters:parameters];
     }
 };
 

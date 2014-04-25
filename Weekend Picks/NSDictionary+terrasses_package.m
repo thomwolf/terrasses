@@ -17,7 +17,8 @@
 {
     NSArray *ar = self[@"first_time"];
     NSDictionary *dict = ar[0];
-    return dict[@"time_value"];
+    NSArray* foo = [dict[@"time_value"] componentsSeparatedByString: @":"];
+    return [foo firstObject];
 }
 
 - (NSArray *)tableau
