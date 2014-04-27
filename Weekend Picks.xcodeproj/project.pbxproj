@@ -29,6 +29,7 @@
 		B7364A76190487FF0025375F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7364A75190487FF0025375F /* Security.framework */; };
 		B7364A7B19048CC90025375F /* NSDictionary+terrasses.m in Sources */ = {isa = PBXBuildFile; fileRef = B7364A7819048CC90025375F /* NSDictionary+terrasses.m */; };
 		B7364A7C19048CC90025375F /* NSDictionary+terrasses_package.m in Sources */ = {isa = PBXBuildFile; fileRef = B7364A7A19048CC90025375F /* NSDictionary+terrasses_package.m */; };
+		B78C5D7F190D9BF80087553F /* HorizontalTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B78C5D7E190D9BF80087553F /* HorizontalTableView.m */; };
 		DD8CD17C158C27F200067C1B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8CD17B158C27F200067C1B /* UIKit.framework */; };
 		DD8CD17E158C27F200067C1B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8CD17D158C27F200067C1B /* Foundation.framework */; };
 		DD8CD180158C27F200067C1B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8CD17F158C27F200067C1B /* CoreGraphics.framework */; };
@@ -120,6 +121,8 @@
 		B7364A7819048CC90025375F /* NSDictionary+terrasses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+terrasses.m"; sourceTree = "<group>"; };
 		B7364A7919048CC90025375F /* NSDictionary+terrasses_package.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+terrasses_package.h"; sourceTree = "<group>"; };
 		B7364A7A19048CC90025375F /* NSDictionary+terrasses_package.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+terrasses_package.m"; sourceTree = "<group>"; };
+		B78C5D7D190D9BF80087553F /* HorizontalTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalTableView.h; sourceTree = "<group>"; };
+		B78C5D7E190D9BF80087553F /* HorizontalTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalTableView.m; sourceTree = "<group>"; };
 		DD8CD177158C27F200067C1B /* Picks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Picks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8CD17B158C27F200067C1B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DD8CD17D158C27F200067C1B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -277,6 +280,8 @@
 				DD8CD1B8158C2A7500067C1B /* MBWPSearchViewController.m */,
 				DD8D9580158C4ABB00C4C4C3 /* MBWPDetailViewController.h */,
 				DD8D9581158C4ABB00C4C4C3 /* MBWPDetailViewController.m */,
+				B78C5D7D190D9BF80087553F /* HorizontalTableView.h */,
+				B78C5D7E190D9BF80087553F /* HorizontalTableView.m */,
 				DD8CD182158C27F300067C1B /* Supporting Files */,
 			);
 			path = "Weekend Picks";
@@ -433,6 +438,7 @@
 				B7364A62190487C30025375F /* AFNetworkReachabilityManager.m in Sources */,
 				B7364A68190487C30025375F /* AFNetworkActivityIndicatorManager.m in Sources */,
 				DD8CD18F158C27F300067C1B /* MBWPViewController.m in Sources */,
+				B78C5D7F190D9BF80087553F /* HorizontalTableView.m in Sources */,
 				B7364A64190487C30025375F /* AFURLConnectionOperation.m in Sources */,
 				B7364A6D190487C30025375F /* UIProgressView+AFNetworking.m in Sources */,
 				B7364A61190487C30025375F /* AFHTTPSessionManager.m in Sources */,

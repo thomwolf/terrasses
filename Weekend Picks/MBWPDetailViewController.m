@@ -16,6 +16,9 @@
 @interface MBWPDetailViewController ()
 
 @property (strong, nonatomic) NSDictionary *terrasseDescription;
+@property (nonatomic, retain) IBOutlet HorizontalTableView *tableView;
+@property (nonatomic, retain) IBOutlet UIView *columnView;
+@property (nonatomic, retain) NSArray *weather;
 //@property (strong, nonatomic) UIImageView *myImageView;
 //@property (strong, nonatomic) NSString *detailTitle;
 //@property (strong, nonatomic) NSString *detailDescription;
@@ -27,8 +30,8 @@
 static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
 static NSString * const MarkerURLString = @"http://terrasses.alwaysdata.net/images/leaf-sun.png";
 
-//@synthesize terrasseNumber;
-//@synthesize terrasseDescription;
+@synthesize columnView;
+@synthesize tableView;
 //@synthesize myImageView;
 
 - (void)viewDidLoad
@@ -112,6 +115,21 @@ static NSString * const MarkerURLString = @"http://terrasses.alwaysdata.net/imag
         
         [myImageView setImageWithURL:[NSURL URLWithString:terimg]];
 
+        CALayer *layer = [self.tableView layer];
+        [layer setCornerRadius:15.0f];
+        
+        
+        NSMutableArray *colorArray = [[NSMutableArray alloc] init];
+        NSInteger step = 5;
+        for (NSInteger i = 0; i < 255; i += step) {
+            CGFloat f = (float)i/255.0f;
+            UIColor *clr = [UIColor colorWithRed:f green:f blue:f alpha:1.0f];
+            [colorArray addObject:clr];
+        }
+        self.weather = colorArray;
+        // [self.tableView refreshData];
+        [self.tableView performSelector:@selector(refreshData) withObject:nil afterDelay:0.3f];
+
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         // 4
@@ -126,6 +144,37 @@ static NSString * const MarkerURLString = @"http://terrasses.alwaysdata.net/imag
     // 5
     [operation start];
     
+}
+
+#pragma mark -
+#pragma mark HorizontalTableViewDelegate methods
+
+- (NSInteger)numberOfColumnsForTableView:(HorizontalTableView *)tableView {
+    return [self.weather count];
+}
+
+- (UIView *)tableView:(HorizontalTableView *)aTableView viewForIndex:(NSInteger)index {
+    
+    UIView *vw = [aTableView dequeueColumnView];
+    if (!vw) {
+        NSLog(@"Constructing new view");
+        
+        [[NSBundle mainBundle] loadNibNamed:@"ColumnView" owner:self options:nil];
+        vw = self.columnView;
+        self.columnView = nil;
+        
+    }
+    //[vw setBackgroundColor:[colors objectAtIndex:index]];
+    
+    
+    UILabel *lbl = (UILabel *)[vw viewWithTag:1234];
+    lbl.text = [NSString stringWithFormat:@"%d", index];
+    
+	return vw;
+}
+
+- (CGFloat)columnWidthForTableView:(HorizontalTableView *)tableView {
+    return 150.0f;
 }
 
 #pragma mark -

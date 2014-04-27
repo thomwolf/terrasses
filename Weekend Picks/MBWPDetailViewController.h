@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MBWPDetailViewController : UIViewController <UIWebViewDelegate>
+#import "HorizontalTableView.h"
+
+@interface MBWPDetailViewController : UIViewController <UIWebViewDelegate,HorizontalTableViewDelegate>
 
 @property (strong, nonatomic) NSNumber *terrasseNumber;
 
