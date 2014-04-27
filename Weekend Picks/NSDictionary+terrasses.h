@@ -12,15 +12,8 @@
 
 @interface NSDictionary (terrasses)
 
-- (NSNumber *)num;
-- (NSString *)address;
-- (NSNumber *)zip;
-- (NSString *)dosred_type;
-- (NSNumber *)longitude;
-- (NSNumber *)latitude;
-- (NSString *)placename_ter;
-- (NSNumber *)nombretot;
-- (NSNumber *)nombresoleil;
-- (NSNumber *)time_num;
+
+- (NSNumber *)terr_longitude;
+- (NSNumber *)terr_latitude;
 
 @end

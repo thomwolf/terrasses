@@ -27,10 +27,62 @@
     return ar;
 }
 
-/*- (NSArray *)upcomingWeather
+- (NSNumber *)num
 {
-    NSDictionary *dict = self[@"data"];
-    return dict[@"weather"];
-}*/
+    NSString *cc = self[@"num"];
+    NSLog(cc.description);
+    NSNumber *n = @([cc intValue]);
+    NSLog([NSString stringWithFormat:@"n: %d", n.intValue]);
+    return n;
+};
+- (NSString *)address
+{
+    return self[@"address"];
+};
+- (NSNumber *)zip
+{
+    NSString *cc = self[@"zip"];
+    NSNumber *n = @([cc intValue]);
+    return n;
+};
+- (NSString *)dosred_type
+{
+    return self[@"dosred_type"];
+};
+- (NSNumber *)longitude
+{
+    NSString *cc = self[@"longitude"];
+    NSNumber *n = @([cc doubleValue]);
+    return n;
+};
+- (NSNumber *)latitude
+{
+    NSString *cc = self[@"latitude"];
+    NSNumber *n = @([cc doubleValue]);
+    return n;
+};
+- (NSString *)placename_ter
+{
+    return self[@"placename_ter"];
+};
+- (NSNumber *)nombretot
+{
+    NSString *cc = self[@"nombretot"];
+    NSNumber *n = @([cc intValue]);
+    return n;
+};
+- (NSNumber *)nombresoleil
+{
+    NSString *cc = self[@"nombresoleil"];
+    NSNumber *n = @([cc intValue]);
+    return n;
+};
+- (NSNumber *)time_num
+{
+    NSString *cc = self[@"time_num"];
+    NSNumber *n = @([cc intValue]);
+    return n;
+};
+
 
 @end

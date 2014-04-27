@@ -13,8 +13,19 @@
 
 @interface NSDictionary (terrasses_package)
 
--(NSNumber *)first_time;
--(NSArray *)tableau;
+- (NSNumber *)first_time;
+- (NSArray *)tableau;
+
+- (NSNumber *)num;
+- (NSString *)address;
+- (NSNumber *)zip;
+- (NSString *)dosred_type;
+- (NSNumber *)longitude;
+- (NSNumber *)latitude;
+- (NSString *)placename_ter;
+- (NSNumber *)nombretot;
+- (NSNumber *)nombresoleil;
+- (NSNumber *)time_num;
 //-(NSArray *)upcomingWeather;
 
 @end

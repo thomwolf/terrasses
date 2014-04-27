@@ -47,7 +47,7 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
     
     self.navigationController.navigationBar.tintColor = [UIColor colorWithHexString:kTintColorHex];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks
                                                                                            target:self
                                                                                            action:@selector(presentSearch:)];
     
@@ -103,7 +103,9 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
                                  @"lat": [NSString stringWithFormat:@"%f",center.latitude ]
                                  };
     [self getAndAddTerrassesWithParameters:parameters];
+    
     self.readyToQueryMarkers = YES;
+    
     //    __weak RMMapView *map = self.mapView; // avoid block-based memory leak
     
     
@@ -203,11 +205,13 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
                     CLLocationCoordinate2D markercoord = CLLocationCoordinate2DMake([[place latitude] doubleValue], [[place longitude] doubleValue]);
                     NSLog([NSString stringWithFormat:@"%f, %f",markercoord.latitude, markercoord.longitude]);
                     
-                    marker = [RMAnnotation annotationWithMapView:self.mapView coordinate:markercoord andTitle:nil];
+                    marker = [RMAnnotation annotationWithMapView:self.mapView coordinate:markercoord andTitle:[place placename_ter]];
                     
                     //marker.userInfo = place;
 //                    NSArray * userinfo =
-                    [marker setUserInfo:place];
+                    NSDictionary *userinfo = [NSDictionary dictionaryWithObjectsAndKeys:[place num],@"num", nil ];//,@"value2",@"key2", nil];
+                    NSLog(userinfo.description);
+                    [marker setUserInfo:userinfo];
                     
                     [self.mapView addAnnotation:marker];
                     NSLog(marker.description);
@@ -421,8 +425,8 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
 {
     MBWPDetailViewController *detailController = [[MBWPDetailViewController alloc] initWithNibName:nil bundle:nil];
     
-    detailController.detailTitle       = [annotation.userInfo objectForKey:@"title"];
-    detailController.detailDescription = [annotation.userInfo objectForKey:@"description"];
+    detailController.terrasseNumber       = [annotation.userInfo objectForKey:@"num"];
+//    detailController.detailDescription = [annotation.userInfo objectForKey:@"description"];
     
     [self.navigationController pushViewController:detailController animated:YES];
 }

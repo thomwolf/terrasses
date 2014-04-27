@@ -15,4 +15,5 @@
     #import <SystemConfiguration/SystemConfiguration.h>
     #import <MobileCoreServices/MobileCoreServices.h>
     #import "AFNetworking.h"
+    #import "UIKit+AFNetworking.h"
 #endif

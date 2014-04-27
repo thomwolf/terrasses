@@ -12,60 +12,20 @@
 
 @implementation NSDictionary (terrasses)
 
-- (NSNumber *)num
+- (NSNumber *)terr_longitude
 {
-    NSString *cc = self[@"num"];
-    NSLog(cc.description);
-    NSNumber *n = @([cc intValue]);
-    NSLog([NSString stringWithFormat:@"n: %d", n.intValue]);
-    return n;
-};
-- (NSString *)address
-{
-    return self[@"address"];
-};
-- (NSNumber *)zip
-{
-    NSString *cc = self[@"zip"];
-    NSNumber *n = @([cc intValue]);
-    return n;
-};
-- (NSString *)dosred_type
-{
-    return self[@"dosred_type"];
-};
-- (NSNumber *)longitude
-{
-    NSString *cc = self[@"longitude"];
+    NSArray *ar = self[@"terr_info"];
+    NSDictionary *dict = ar[0];
+    NSString *cc = dict[@"longitude"];
     NSNumber *n = @([cc doubleValue]);
     return n;
 };
-- (NSNumber *)latitude
+- (NSNumber *)terr_latitude
 {
-    NSString *cc = self[@"latitude"];
+    NSArray *ar = self[@"terr_info"];
+    NSDictionary *dict = ar[0];
+    NSString *cc = dict[@"latitude"];
     NSNumber *n = @([cc doubleValue]);
-    return n;
-};
-- (NSString *)placename_ter
-{
-    return self[@"placename_ter"];
-};
-- (NSNumber *)nombretot
-{
-    NSString *cc = self[@"nombretot"];
-    NSNumber *n = @([cc intValue]);
-    return n;
-};
-- (NSNumber *)nombresoleil
-{
-    NSString *cc = self[@"nombresoleil"];
-    NSNumber *n = @([cc intValue]);
-    return n;
-};
-- (NSNumber *)time_num
-{
-    NSString *cc = self[@"time_num"];
-    NSNumber *n = @([cc intValue]);
     return n;
 };
 

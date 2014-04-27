@@ -5,21 +5,21 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>B6337E18-D1DB-4549-BC47-08257F098B58</string>
+	<string>DE8C4C70-85FB-49B3-A0C1-5A2288E90BA0</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Weekend Picks</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>5EFCE954-5F5E-4215-9E94-7CCB399763D9</key>
 		<string>https://github.com/ccgus/fmdb.git</string>
-		<key>87D8ED95-B182-4F94-8148-7982468F5949</key>
-		<string>https://github.com/thomwolf/weekend-picks-template-ios.git</string>
 		<key>8F3FBBFD-3380-4374-ADA2-ACD8FF85AF28</key>
 		<string>https://github.com/mapbox/mapbox-ios-sdk.git</string>
 		<key>A6AAC052-5F5F-498D-B3DE-453B5BEE7DED</key>
 		<string>https://github.com/groue/GRMustache.git</string>
 		<key>D0FDE749-C02A-4A26-B7CF-BD80D401F9C2</key>
 		<string>https://github.com/nfarina/calloutview.git</string>
+		<key>EC8006F5-7189-47B1-A33D-5318712D16B3</key>
+		<string>https://github.com/thomwolf/terrasses.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Weekend Picks.xcodeproj/project.xcworkspace</string>
@@ -27,21 +27,21 @@
 	<dict>
 		<key>5EFCE954-5F5E-4215-9E94-7CCB399763D9</key>
 		<string>../../MapBox-iOS-SDK/MapView/Map/FMDB</string>
-		<key>87D8ED95-B182-4F94-8148-7982468F5949</key>
-		<string>../..</string>
 		<key>8F3FBBFD-3380-4374-ADA2-ACD8FF85AF28</key>
 		<string>../../MapBox-iOS-SDK</string>
 		<key>A6AAC052-5F5F-498D-B3DE-453B5BEE7DED</key>
 		<string>../../MapBox-iOS-SDK/MapView/Map/GRMustache</string>
 		<key>D0FDE749-C02A-4A26-B7CF-BD80D401F9C2</key>
 		<string>../../MapBox-iOS-SDK/MapView/Map/SMCalloutView</string>
+		<key>EC8006F5-7189-47B1-A33D-5318712D16B3</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/thomwolf/weekend-picks-template-ios.git</string>
+	<string>https://github.com/thomwolf/terrasses.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>87D8ED95-B182-4F94-8148-7982468F5949</string>
+	<string>EC8006F5-7189-47B1-A33D-5318712D16B3</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -80,7 +80,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>87D8ED95-B182-4F94-8148-7982468F5949</string>
+			<string>EC8006F5-7189-47B1-A33D-5318712D16B3</string>
 			<key>IDESourceControlWCCName</key>
 			<string>weekend-picks-template-ios</string>
 		</dict>

@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Weekend Picks/NSDictionary+terrasses.m"
-            timestampString = "420018501.718897"
+            filePath = "Weekend Picks/MBWPViewController.m"
+            timestampString = "420208294.386238"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "-num"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
+            landmarkName = "-getAndAddTerrassesWithParameters:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
