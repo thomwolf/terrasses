@@ -31,6 +31,8 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
 @property (nonatomic, assign) BOOL readyToQueryMarkers;
 @property (strong) NSMutableArray *numarray;
 @property (strong) NSNumber *first_time;
+@property (strong, nonatomic) NSUserDefaults *prefs; //= [NSUserDefaults standardUserDefaults];  //load NSUserDefaults
+@property (strong, nonatomic) NSArray * favorties;
 
 @end
 
@@ -46,6 +48,9 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.prefs = [NSUserDefaults standardUserDefaults];  //load NSUserDefaults
+    self.favorites = [defaults arrayForKey:@"favorites"];
     
     self.navigationController.navigationBar.tintColor = [UIColor colorWithHexString:kTintColorHex];
     
@@ -289,7 +294,7 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
 
 - (void)presentSearch:(id)sender
 {
-    NSMutableArray *filterTypes = [NSMutableArray array];
+/*    NSMutableArray *filterTypes = [NSMutableArray array];
     
     for (RMAnnotation *annotation in self.mapView.annotations)
     {
@@ -303,17 +308,17 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
                                     [NSNumber numberWithBool:selected], @"selected",
                                     nil]];
         }
-    }
+    }*/
     
     MBWPSearchViewController *searchController = [[MBWPSearchViewController alloc] initWithNibName:nil bundle:nil];
     
     searchController.delegate = self;
-    searchController.filterTypes = [NSArray arrayWithArray:filterTypes];
+    searchController.favorites = self.favorites;
     
     UINavigationController *wrapper = [[UINavigationController alloc] initWithRootViewController:searchController];
     
     wrapper.navigationBar.tintColor = self.navigationController.navigationBar.tintColor;
-    wrapper.topViewController.title = @"Search";
+    wrapper.topViewController.title = @"Bookmarks";
     
     [self presentModalViewController:wrapper animated:YES];
 }
