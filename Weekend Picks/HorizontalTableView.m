@@ -46,11 +46,11 @@
 
 @implementation HorizontalTableView
 
-@synthesize pageViews=_pageViews;
+/*@synthesize pageViews=_pageViews;
 @synthesize scrollView=_scrollView;
 @synthesize currentPageIndex=_currentPageIndex;
 @synthesize delegate=_delegate;
-@synthesize columnPool=_columnPool;
+@synthesize columnPool=_columnPool;*/
 
 
 
@@ -58,6 +58,7 @@
     self.pageViews = [NSMutableArray array];
 	// to save time and memory, we won't load the page views immediately
 	NSUInteger numberOfPhysicalPages = [self numberOfPages];
+//    NSLog(@"numberOfPhysicalPages: %ld", (unsigned long)numberOfPhysicalPages);
 	for (NSUInteger i = 0; i < numberOfPhysicalPages; ++i)
 		[self.pageViews addObject:[NSNull null]];
     
@@ -82,7 +83,7 @@
             pageView = [_delegate tableView:self viewForIndex:pageIndex];
             [self.pageViews replaceObjectAtIndex:pageIndex withObject:pageView];
             [self.scrollView addSubview:pageView];
-            DLog(@"View loaded for page %d", pageIndex);
+//            NSLog(@"View loaded for page %d", pageIndex);
         }
 	} else {
 		pageView = [self.pageViews objectAtIndex:pageIndex];
@@ -99,7 +100,7 @@
     if (!_columnWidth) {
         if (_delegate) {
             CGFloat width = [_delegate columnWidthForTableView:self];
-            _columnWidth = [[NSNumber numberWithFloat:width] retain];
+            _columnWidth = [NSNumber numberWithFloat:width];
         }
     }
     return [_columnWidth floatValue];
@@ -116,6 +117,7 @@
 	CGSize pageSize = [self pageSize];
     
     CGRect rect = CGRectMake(viewWidth * pageIndex, 0, viewWidth, pageSize.height);
+//    NSLog(@"rect: origine %f, %f, size: %f, %f", rect.origin.x, rect.origin.y, rect.size.height, rect.size.width);
 	pageView.frame = rect;
 }
 
@@ -131,17 +133,17 @@
 }
 
 - (UIView *)dequeueColumnView {
-    UIView *vw = [[self.columnPool lastObject] retain];
+    UIView *vw = [self.columnPool lastObject];
     if (vw) {
         [self.columnPool removeLastObject];
-        DLog(@"Supply from reuse pool");
+ //       NSLog(@"Supply from reuse pool");
     }
-    return [vw autorelease];
+    return vw;
 }
 
 - (void)removeColumn:(NSInteger)index {
     if ([self.pageViews objectAtIndex:index] != [NSNull null]) {
-        DLog(@"Removing view at position %d", index);
+ //       NSLog(@"Removing view at position %d", index);
         UIView *vw = [self.pageViews objectAtIndex:index];
         [self queueColumnView:vw];
         [vw removeFromSuperview];
@@ -153,7 +155,7 @@
     CGSize pageSize = [self pageSize];
     CGFloat columnWidth = [self columnWidth];
     _visibleColumnCount = pageSize.width / columnWidth + 2;
-    
+ //   NSLog(@"pageSize: %f, %f, columnWidth: %f, _visibleColumnCount: %d",pageSize.height, pageSize.width, columnWidth, _visibleColumnCount);
     NSInteger leftMostPageIndex = -1;
     NSInteger rightMostPageIndex = 0;
     
@@ -182,11 +184,20 @@
 
 - (void)layoutPages {
     CGSize pageSize = self.bounds.size;
-	self.scrollView.contentSize = CGSizeMake([self.pageViews count] * [self columnWidth], pageSize.height);
+    NSLog(@"count: %d, colomnwidth:%f", [self.pageViews count],[self columnWidth]);
+	self.scrollView.contentSize = CGSizeMake([self.pageViews count] * [self columnWidth]+32, pageSize.height); // Don't know why 32 works ...
 }
 
 - (id)init {
     self = [super init];
+    if (self) {
+        [self prepareView];
+    }
+    return self;
+}
+
+- (id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
     if (self) {
         [self prepareView];
     }
@@ -202,6 +213,7 @@
     
     UIScrollView *scroller = [[UIScrollView alloc] init];
     CGRect rect = self.bounds;
+//    NSLog(@"self.bounds rect: origine %f, %f, size: %f, %f", rect.origin.x, rect.origin.y, rect.size.height, rect.size.width);
     scroller.frame = rect;
     scroller.backgroundColor = [UIColor blackColor];
 	scroller.delegate = self;
@@ -214,7 +226,7 @@
     scroller.alwaysBounceVertical = NO;
     self.scrollView = scroller;
 	[self addSubview:scroller];
-    [scroller release], scroller = nil;
+//    [scroller release], scroller = nil;
 }
 
 
@@ -241,15 +253,15 @@
 	
 	[self currentPageIndexDidChange];
     
-    CGSize rect = [self.scrollView contentSize];
-    DLog(@"CSize = %@", NSStringFromCGSize(rect));
+//    CGSize rect = [self.scrollView contentSize];
+//    NSLog(@"CSize = %@", NSStringFromCGSize(rect));
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-	DLog(@"scrollViewDidEndDecelerating");
+//	NSLog(@"scrollViewDidEndDecelerating");
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -278,12 +290,12 @@
 }
 
 
-- (void)dealloc {
+/*- (void)dealloc {
     [_columnPool release], _columnPool = nil;
     [_columnWidth release], _columnWidth = nil;
     [_pageViews release], _pageViews = nil;
     [_scrollView release], _scrollView = nil;
     [super dealloc];
-}
+}*/
 
 @end

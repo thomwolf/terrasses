@@ -30,6 +30,21 @@
 		B7364A7B19048CC90025375F /* NSDictionary+terrasses.m in Sources */ = {isa = PBXBuildFile; fileRef = B7364A7819048CC90025375F /* NSDictionary+terrasses.m */; };
 		B7364A7C19048CC90025375F /* NSDictionary+terrasses_package.m in Sources */ = {isa = PBXBuildFile; fileRef = B7364A7A19048CC90025375F /* NSDictionary+terrasses_package.m */; };
 		B78C5D7F190D9BF80087553F /* HorizontalTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B78C5D7E190D9BF80087553F /* HorizontalTableView.m */; };
+		B78C5D8F190DADF30087553F /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B78C5D81190DADF30087553F /* arrow.png */; };
+		B78C5D90190DADF30087553F /* leaf-green.png in Resources */ = {isa = PBXBuildFile; fileRef = B78C5D82190DADF30087553F /* leaf-green.png */; };
+		B78C5D91190DADF30087553F /* leaf-shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = B78C5D83190DADF30087553F /* leaf-shadow.png */; };
+		B78C5D92190DADF30087553F /* leaf-sun.png in Resources */ = {isa = PBXBuildFile; fileRef = B78C5D84190DADF30087553F /* leaf-sun.png */; };
+		B78C5D93190DADF30087553F /* night.png in Resources */ = {isa = PBXBuildFile; fileRef = B78C5D85190DADF30087553F /* night.png */; };
+		B78C5D94190DADF30087553F /* risingsun.png in Resources */ = {isa = PBXBuildFile; fileRef = B78C5D86190DADF30087553F /* risingsun.png */; };
+		B78C5D95190DADF30087553F /* settingsun.png in Resources */ = {isa = PBXBuildFile; fileRef = B78C5D87190DADF30087553F /* settingsun.png */; };
+		B78C5D96190DADF30087553F /* Soleil.png in Resources */ = {isa = PBXBuildFile; fileRef = B78C5D88190DADF30087553F /* Soleil.png */; };
+		B78C5D97190DADF30087553F /* sun0.png in Resources */ = {isa = PBXBuildFile; fileRef = B78C5D89190DADF30087553F /* sun0.png */; };
+		B78C5D98190DADF30087553F /* sun1.png in Resources */ = {isa = PBXBuildFile; fileRef = B78C5D8A190DADF30087553F /* sun1.png */; };
+		B78C5D99190DADF30087553F /* sun2.png in Resources */ = {isa = PBXBuildFile; fileRef = B78C5D8B190DADF30087553F /* sun2.png */; };
+		B78C5D9A190DADF30087553F /* sun3.png in Resources */ = {isa = PBXBuildFile; fileRef = B78C5D8C190DADF30087553F /* sun3.png */; };
+		B78C5D9B190DADF30087553F /* sun4.png in Resources */ = {isa = PBXBuildFile; fileRef = B78C5D8D190DADF30087553F /* sun4.png */; };
+		B78C5D9C190DADF30087553F /* Sunset.png in Resources */ = {isa = PBXBuildFile; fileRef = B78C5D8E190DADF30087553F /* Sunset.png */; };
+		B78C5DA5190DC8AD0087553F /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = B78C5DA4190DC8AD0087553F /* circle.png */; };
 		DD8CD17C158C27F200067C1B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8CD17B158C27F200067C1B /* UIKit.framework */; };
 		DD8CD17E158C27F200067C1B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8CD17D158C27F200067C1B /* Foundation.framework */; };
 		DD8CD180158C27F200067C1B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8CD17F158C27F200067C1B /* CoreGraphics.framework */; };
@@ -123,6 +138,21 @@
 		B7364A7A19048CC90025375F /* NSDictionary+terrasses_package.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+terrasses_package.m"; sourceTree = "<group>"; };
 		B78C5D7D190D9BF80087553F /* HorizontalTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalTableView.h; sourceTree = "<group>"; };
 		B78C5D7E190D9BF80087553F /* HorizontalTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalTableView.m; sourceTree = "<group>"; };
+		B78C5D81190DADF30087553F /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		B78C5D82190DADF30087553F /* leaf-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leaf-green.png"; sourceTree = "<group>"; };
+		B78C5D83190DADF30087553F /* leaf-shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leaf-shadow.png"; sourceTree = "<group>"; };
+		B78C5D84190DADF30087553F /* leaf-sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leaf-sun.png"; sourceTree = "<group>"; };
+		B78C5D85190DADF30087553F /* night.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = night.png; sourceTree = "<group>"; };
+		B78C5D86190DADF30087553F /* risingsun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = risingsun.png; sourceTree = "<group>"; };
+		B78C5D87190DADF30087553F /* settingsun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsun.png; sourceTree = "<group>"; };
+		B78C5D88190DADF30087553F /* Soleil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Soleil.png; sourceTree = "<group>"; };
+		B78C5D89190DADF30087553F /* sun0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun0.png; sourceTree = "<group>"; };
+		B78C5D8A190DADF30087553F /* sun1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun1.png; sourceTree = "<group>"; };
+		B78C5D8B190DADF30087553F /* sun2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun2.png; sourceTree = "<group>"; };
+		B78C5D8C190DADF30087553F /* sun3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun3.png; sourceTree = "<group>"; };
+		B78C5D8D190DADF30087553F /* sun4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun4.png; sourceTree = "<group>"; };
+		B78C5D8E190DADF30087553F /* Sunset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sunset.png; sourceTree = "<group>"; };
+		B78C5DA4190DC8AD0087553F /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
 		DD8CD177158C27F200067C1B /* Picks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Picks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8CD17B158C27F200067C1B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DD8CD17D158C27F200067C1B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -320,6 +350,21 @@
 		DD8CD1BA158C2A9E00067C1B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B78C5DA4190DC8AD0087553F /* circle.png */,
+				B78C5D81190DADF30087553F /* arrow.png */,
+				B78C5D82190DADF30087553F /* leaf-green.png */,
+				B78C5D83190DADF30087553F /* leaf-shadow.png */,
+				B78C5D84190DADF30087553F /* leaf-sun.png */,
+				B78C5D85190DADF30087553F /* night.png */,
+				B78C5D86190DADF30087553F /* risingsun.png */,
+				B78C5D87190DADF30087553F /* settingsun.png */,
+				B78C5D88190DADF30087553F /* Soleil.png */,
+				B78C5D89190DADF30087553F /* sun0.png */,
+				B78C5D8A190DADF30087553F /* sun1.png */,
+				B78C5D8B190DADF30087553F /* sun2.png */,
+				B78C5D8C190DADF30087553F /* sun3.png */,
+				B78C5D8D190DADF30087553F /* sun4.png */,
+				B78C5D8E190DADF30087553F /* Sunset.png */,
 				DDA38811158FAF6600AC339E /* icon.png */,
 				DD930BF215ACFCC90066071A /* icon@2x.png */,
 				DD9BFE4E1601419B0011F174 /* Default-568h@2x.png */,
@@ -415,12 +460,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD8CD186158C27F300067C1B /* InfoPlist.strings in Resources */,
+				B78C5D9B190DADF30087553F /* sun4.png in Resources */,
+				B78C5D97190DADF30087553F /* sun0.png in Resources */,
+				B78C5D95190DADF30087553F /* settingsun.png in Resources */,
 				DD8CD192158C27F300067C1B /* MBWPViewController.xib in Resources */,
+				B78C5D94190DADF30087553F /* risingsun.png in Resources */,
+				B78C5D96190DADF30087553F /* Soleil.png in Resources */,
 				DDA38812158FAF6600AC339E /* icon.png in Resources */,
+				B78C5D91190DADF30087553F /* leaf-shadow.png in Resources */,
 				DDD7C5EF159002300061B9F4 /* Entitlements.plist in Resources */,
 				DD930BF315ACFCC90066071A /* icon@2x.png in Resources */,
+				B78C5D93190DADF30087553F /* night.png in Resources */,
+				B78C5D99190DADF30087553F /* sun2.png in Resources */,
+				B78C5D9A190DADF30087553F /* sun3.png in Resources */,
 				DD9BFE4F1601419B0011F174 /* Default-568h@2x.png in Resources */,
+				B78C5DA5190DC8AD0087553F /* circle.png in Resources */,
 				DD97C0C916488571007C4652 /* MapBox.bundle in Resources */,
+				B78C5D98190DADF30087553F /* sun1.png in Resources */,
+				B78C5D92190DADF30087553F /* leaf-sun.png in Resources */,
+				B78C5D90190DADF30087553F /* leaf-green.png in Resources */,
+				B78C5D9C190DADF30087553F /* Sunset.png in Resources */,
+				B78C5D8F190DADF30087553F /* arrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

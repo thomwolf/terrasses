@@ -27,6 +27,27 @@
     return ar;
 }
 
+- (NSNumber *)max_time
+{
+    NSArray *ar = self[@"max_time"];
+    NSDictionary *dict = ar[0];
+    NSNumber* n = @([dict[@"max"] intValue]);
+    return n;
+}
+
+- (NSDictionary *)terr_info
+{
+    NSArray *ar = self[@"terr_info"];
+    NSDictionary *dict = ar[0];
+    return dict;
+}
+
+- (NSArray *)terr_time_table
+{
+    NSArray *ar = self[@"terr_time_table"];
+    return ar;
+}
+
 - (NSNumber *)num
 {
     NSString *cc = self[@"num"];
@@ -82,6 +103,11 @@
     NSString *cc = self[@"time_num"];
     NSNumber *n = @([cc intValue]);
     return n;
+};
+- (NSString *)timenext
+{
+    NSString *cc = self[@"timenext"];
+    return cc;
 };
 
 

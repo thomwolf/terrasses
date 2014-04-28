@@ -18,6 +18,7 @@
 #define kNormalMapID  @"thomwolf.hkfl24gn"
 #define kRetinaMapID  @"thomwolf.hkfl24gn"
 #define kTintColorHex @"#AA0000"
+#define CLUSTER_ZOOM 17
 
 static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
 
@@ -29,6 +30,7 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
 @property (nonatomic, assign) RMSphericalTrapezium boundsstart;
 @property (nonatomic, assign) BOOL readyToQueryMarkers;
 @property (strong) NSMutableArray *numarray;
+@property (strong) NSNumber *first_time;
 
 @end
 
@@ -61,7 +63,7 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
     self.mapView.tileSource = [[RMMapBoxSource alloc] initWithMapID:([[UIScreen mainScreen] scale] > 1.0 ? kRetinaMapID : kNormalMapID)
                                               enablingDataOnMapView:self.mapView];
     
-    self.mapView.zoom = 16;
+//    self.mapView.zoom = 16;
     self.mapView.minZoom = 16;
     /** Contrain zooming and panning of the map view to a given coordinate boundary.
      *   @param southWest The southwest point to constrain to.
@@ -85,7 +87,9 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
     
     RMSphericalTrapezium boundsend = self.mapView.latitudeLongitudeBoundingBox;
     CLLocationCoordinate2D center= self.mapView.centerCoordinate;
-
+    
+//    self.first_time = [[NSNumber alloc] init];
+    
     NSDictionary *parameters = @{@"type": @"move",
                                  /*                              @"LON1s": [NSString stringWithFormat:@"%f", self.boundsstart.southWest.longitude],
                                   @"LON2s": [NSString stringWithFormat:@"%f",self.boundsstart.northEast.longitude],
@@ -105,6 +109,7 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
     [self getAndAddTerrassesWithParameters:parameters];
     
     self.readyToQueryMarkers = YES;
+    self.mapView.clusteringEnabled = YES;
     
     //    __weak RMMapView *map = self.mapView; // avoid block-based memory leak
     
@@ -140,7 +145,7 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
     
     // 1
     NSString *string = [NSString stringWithFormat:@"%@position2.php", BaseURLString];
-
+    
     NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:string parameters:parameters error:nil];
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
@@ -152,11 +157,11 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
         
         // 3
         self.terrasses = (NSDictionary *)responseObject;
-        NSLog(@"Youhou");
-        NSLog(self.terrasses.description);
+  //      NSLog(@"Youhou");
+  //      NSLog(self.terrasses.description);
         
-        NSNumber * first_time = [self.terrasses first_time];
-        NSLog(first_time.description);
+        self.first_time = [self.terrasses first_time];
+//        NSLog(first_time.description);
         //NSNumber * nexttime = first_time;
         
         NSArray * tableau = [self.terrasses tableau];//['tableau'];
@@ -171,16 +176,16 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
             NSLog(place.description);
             if ([place latitude] && [place longitude])
             {
-                NSLog(@"ok lat long");
-//                NSLog([place latitude].description);
+ //               NSLog(@"ok lat long");
+                //                NSLog([place latitude].description);
                 //				console.debug(numarray.indexOf(place.num));
-//                NSNumber * num = [place num];
+                //                NSNumber * num = [place num];
                 if (![self.numarray containsObject:place])
                 {
-                    NSLog(@"ok pas dans numarray");
+ //                   NSLog(@"ok pas dans numarray");
                     [self.numarray addObject:place];
-//                    NSLog([NSString stringWithFormat:@"numarray: %@", self.numarray.description]);
-                   
+                    //                    NSLog([NSString stringWithFormat:@"numarray: %@", self.numarray.description]);
+                    
                     // Create an element to hold all your text and markup
                     ///var container = $('<div />');
                     
@@ -203,19 +208,21 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
                     //{
                     RMAnnotation * marker;
                     CLLocationCoordinate2D markercoord = CLLocationCoordinate2DMake([[place latitude] doubleValue], [[place longitude] doubleValue]);
-                    NSLog([NSString stringWithFormat:@"%f, %f",markercoord.latitude, markercoord.longitude]);
+//                    NSLog([NSString stringWithFormat:@"%f, %f",markercoord.latitude, markercoord.longitude]);
                     
                     marker = [RMAnnotation annotationWithMapView:self.mapView coordinate:markercoord andTitle:[place placename_ter]];
                     
                     //marker.userInfo = place;
-//                    NSArray * userinfo =
-                    NSDictionary *userinfo = [NSDictionary dictionaryWithObjectsAndKeys:[place num],@"num", nil ];//,@"value2",@"key2", nil];
-                    NSLog(userinfo.description);
+                    //                    NSArray * userinfo =
+                   // NSS sunny = [[place nombresoleil] intValue] == 0 ? NO : YES;
+                   // NSLog(@"sunny: %d", sunny);
+                   NSDictionary *userinfo = [NSDictionary dictionaryWithObjectsAndKeys:[place num],@"num", [place nombresoleil], @"sunny", [place timenext], @"timenext", nil ];//,@"value2",@"key2", nil];
+ //                   NSLog(userinfo.description);
                     [marker setUserInfo:userinfo];
                     
                     [self.mapView addAnnotation:marker];
-                    NSLog(marker.description);
-                    NSLog(@"ok ajouté le marker");
+ //                   NSLog(marker.description);
+  //                  NSLog(@"ok ajouté le marker");
                     //var marker = new L.marker([place.latitude, place.longitude], {icon: sunIcon, num: place.num, sunny : true});//.bindPopup(insidehtml); //place.placename_ter+"<br/>"+place.address+"<br/>"+place.zip);
                     /*if (place.timenext)
                      {
@@ -241,7 +248,7 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
                     
                     //markersarray.push(marker);
                 } else {
-                NSLog(@"déjà dans numarray");
+ //                   NSLog(@"déjà dans numarray");
                 }
             }
             //			if (place.nombresoleil == 0) {
@@ -336,7 +343,7 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
 	if (self.readyToQueryMarkers && wasUserAction)
 	{
         self.boundsstart = map.latitudeLongitudeBoundingBox;
-        NSLog([NSString stringWithFormat:@"%f",self.boundsstart.northEast.latitude]);
+        NSLog(@"before move: %f",self.boundsstart.northEast.latitude);
     }
 };
 
@@ -344,6 +351,11 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
  *   @param map The map view that has finished moving.
  *   @param wasUserAction A Boolean indicating whether the map move was in response to a user action or not. */
 - (void)afterMapMove:(RMMapView *)map byUser:(BOOL)wasUserAction{
+    NSLog(@"after move zoom: %f",map.zoom);
+    BOOL cluster = map.zoom < CLUSTER_ZOOM ? YES : NO;
+    [self.mapView setClusteringEnabled:cluster];
+    NSLog(@"cluster ?: %d",self.mapView.clusteringEnabled);
+    
 	if (self.readyToQueryMarkers && wasUserAction)
 	{
         RMSphericalTrapezium boundsend = self.mapView.latitudeLongitudeBoundingBox;
@@ -351,10 +363,10 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
         
         NSDictionary *parameters = @{@"type": @"move",
                                      @"LON1s": [NSString stringWithFormat:@"%f", self.boundsstart.southWest.longitude],
-                                      @"LON2s": [NSString stringWithFormat:@"%f",self.boundsstart.northEast.longitude],
-                                      @"LAT1s": [NSString stringWithFormat:@"%f",self.boundsstart.southWest.latitude ],
-                                      @"LAT2s": [NSString stringWithFormat:@"%f",self.boundsstart.northEast.latitude ],
-                                      @"LON1e": [NSString stringWithFormat:@"%f",boundsend.southWest.longitude ],
+                                     @"LON2s": [NSString stringWithFormat:@"%f",self.boundsstart.northEast.longitude],
+                                     @"LAT1s": [NSString stringWithFormat:@"%f",self.boundsstart.southWest.latitude ],
+                                     @"LAT2s": [NSString stringWithFormat:@"%f",self.boundsstart.northEast.latitude ],
+                                     @"LON1e": [NSString stringWithFormat:@"%f",boundsend.southWest.longitude ],
                                      @"LAT1e": [NSString stringWithFormat:@"%f",boundsend.southWest.latitude ],
                                      @"LON2e": [NSString stringWithFormat:@"%f",boundsend.northEast.longitude ],
                                      @"LAT2e": [NSString stringWithFormat:@"%f",boundsend.northEast.latitude ],
@@ -373,14 +385,20 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
 	if (self.readyToQueryMarkers && wasUserAction)
 	{
         self.boundsstart = map.latitudeLongitudeBoundingBox;
-        NSLog([NSString stringWithFormat:@"%f",self.boundsstart.northEast.latitude]);
+        NSLog(@"before zoom: %f",self.boundsstart.northEast.latitude);
     }
 };
 
 /** When a map has finished moving.
  *   @param map The map view that has finished moving.
  *   @param wasUserAction A Boolean indicating whether the map move was in response to a user action or not. */
-- (void)afterMapZoom:(RMMapView *)map byUser:(BOOL)wasUserAction:(RMMapView *)map byUser:(BOOL)wasUserAction{
+- (void)afterMapZoom:(RMMapView *)map byUser:(BOOL)wasUserAction {
+
+    NSLog(@"after zoom: %f",map.zoom);
+    BOOL cluster = map.zoom < CLUSTER_ZOOM ? YES : NO;
+    [self.mapView setClusteringEnabled:cluster];
+    NSLog(@"cluster ?: %d",self.mapView.clusteringEnabled);
+
 	if (self.readyToQueryMarkers && wasUserAction)
 	{
         RMSphericalTrapezium boundsend = self.mapView.latitudeLongitudeBoundingBox;
@@ -407,17 +425,48 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
     if (annotation.isUserLocationAnnotation)
         return nil;
     
-    RMMarker *marker = [[RMMarker alloc] initWithMapBoxMarkerImage:[annotation.userInfo objectForKey:@"marker-symbol"]
-                                                      tintColorHex:[annotation.userInfo objectForKey:@"marker-color"]
-                                                        sizeString:[annotation.userInfo objectForKey:@"marker-size"]];
+    RMMarker *marker = nil;
     
-    marker.canShowCallout = YES;
-    
-    marker.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    
-    if (self.activeFilterTypes)
-        marker.hidden = ! [self.activeFilterTypes containsObject:[annotation.userInfo objectForKey:@"marker-symbol"]];
-    
+    if (annotation.isClusterAnnotation)
+    {
+        marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"circle.png"]];
+        
+        marker.opacity = 1;//0.75;
+        
+        marker.bounds = CGRectMake(0, 0, 75, 75);
+        
+        [(RMMarker *)marker setTextForegroundColor:[UIColor whiteColor]];
+        
+        [(RMMarker *)marker changeLabelUsingText:[NSString stringWithFormat:@"%i", [annotation.clusteredAnnotations count]]];
+    }
+    else
+    {
+        
+        /** Initializes and returns a newly allocated marker object using the specified image and anchor point.
+         *   @param image An image to use for the marker.
+         *   @param anchorPoint A point representing a range from `0` to `1` in each of the height and width coordinate space, normalized to the size of the image, at which to place the image.
+         *   @return An initialized marker object. */
+        //- (id)initWithUIImage:(UIImage *)image anchorPoint:(CGPoint)anchorPoint;
+        UIImage * img = nil;
+        UIImage * img2 = nil;
+        if ([[annotation.userInfo objectForKey:@"sunny"] intValue] > 0)
+        {
+            img = [UIImage imageNamed: @"leaf-sun.png"];
+            img2 = [UIImage imageNamed: @"settingsun.png"];
+       } else {
+            img = [UIImage imageNamed: @"leaf-shadow.png"];
+            img2 = [UIImage imageNamed: @"risingsun.png"];
+        }
+        marker = [[RMMarker alloc] initWithUIImage:img anchorPoint:CGPointMake(0.5, 1)];
+        
+        marker.canShowCallout = YES;
+        
+        marker.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+            
+        marker.leftCalloutAccessoryView = [[UIImageView alloc] initWithImage:img2];
+       /*   if (self.activeFilterTypes)
+         marker.hidden = ! [self.activeFilterTypes containsObject:[annotation.userInfo objectForKey:@"marker-symbol"]];*/
+    }
     return marker;
 }
 
@@ -426,7 +475,7 @@ static NSString * const BaseURLString = @"http://terrasses.alwaysdata.net/";
     MBWPDetailViewController *detailController = [[MBWPDetailViewController alloc] initWithNibName:nil bundle:nil];
     
     detailController.terrasseNumber       = [annotation.userInfo objectForKey:@"num"];
-//    detailController.detailDescription = [annotation.userInfo objectForKey:@"description"];
+    //    detailController.detailDescription = [annotation.userInfo objectForKey:@"description"];
     
     [self.navigationController pushViewController:detailController animated:YES];
 }

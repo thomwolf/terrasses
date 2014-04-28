@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Weekend Picks/MBWPViewController.m"
-            timestampString = "420208294.386238"
+            filePath = "Weekend Picks/MBWPDetailViewController.m"
+            timestampString = "420333027.28077"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
-            landmarkName = "-getAndAddTerrassesWithParameters:"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "-tableView:viewForIndex:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Weekend Picks/MBWPDetailViewController.m"
-            timestampString = "420322589.107316"
+            filePath = "Weekend Picks/MBWPViewController.m"
+            timestampString = "420337608.992678"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
-            landmarkName = "-tableView:viewForIndex:"
+            startingLineNumber = "398"
+            endingLineNumber = "398"
+            landmarkName = "-afterMapZoom:byUser:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

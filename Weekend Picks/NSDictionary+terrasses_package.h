@@ -15,6 +15,9 @@
 
 - (NSNumber *)first_time;
 - (NSArray *)tableau;
+- (NSNumber *)max_time;
+- (NSDictionary *)terr_info;
+- (NSArray *)terr_time_table;
 
 - (NSNumber *)num;
 - (NSString *)address;
@@ -26,6 +29,7 @@
 - (NSNumber *)nombretot;
 - (NSNumber *)nombresoleil;
 - (NSNumber *)time_num;
+- (NSString *)timenext;
 //-(NSArray *)upcomingWeather;
 
 @end

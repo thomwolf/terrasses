@@ -36,17 +36,17 @@
 
 
 @interface HorizontalTableView : UIView {
-	NSMutableArray *_pageViews;
+/*	NSMutableArray *_pageViews;
 	UIScrollView *_scrollView;
 	NSUInteger _currentPageIndex;
-	NSUInteger _currentPhysicalPageIndex;
-    
+*/	NSUInteger _currentPhysicalPageIndex;
+ 
     NSInteger _visibleColumnCount;
     NSNumber *_columnWidth;
     
-    id _delegate;
+//    id _delegate;
     
-    NSMutableArray *_columnPool;
+/*    NSMutableArray *_columnPool;*/
 }
 
 @property (assign) IBOutlet id<HorizontalTableViewDelegate> delegate;
