@@ -17,16 +17,16 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithTitle:@"Toggle All" style:UIBarButtonItemStyleBordered target:self action:@selector(toggleFilterTypes:)];
+//    self.navigationItem.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithTitle:@"Toggle All" style:UIBarButtonItemStyleBordered target:self action:@selector(toggleFilterTypes:)];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Apply" style:UIBarButtonItemStyleBordered target:self action:@selector(dismissModalViewControllerAnimated:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleBordered target:self action:@selector(dismissModalViewControllerAnimated:)];
     
-    NSMutableArray *sortedFilterTypes = [NSMutableArray array];
+/*    NSMutableArray *sortedFilterTypes = [NSMutableArray array];
     
     for (NSDictionary *filterType in [self.filterTypes sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"marker-symbol" ascending:YES]]])
         [sortedFilterTypes addObject:filterType];
     
-    self.filterTypes = [NSArray arrayWithArray:sortedFilterTypes];
+    self.filterTypes = [NSArray arrayWithArray:sortedFilterTypes];*/
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -41,7 +41,7 @@
 
 - (void)toggleFilterTypes:(id)sender
 {
-    int selectedCount = [[self.filterTypes filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"selected = YES"]] count];
+/*    int selectedCount = [[self.filterTypes filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"selected = YES"]] count];
     
     BOOL newState = (selectedCount != [self.tableView.dataSource tableView:self.tableView numberOfRowsInSection:0]);
     
@@ -50,30 +50,30 @@
         [[self.filterTypes objectAtIndex:i] setObject:[NSNumber numberWithBool:newState] forKey:@"selected"];
         
         [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]].accessoryType = (newState ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone);
-    }
+    }*/
 }
 
 #pragma mark -
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.filterTypes count];
+    return [self.favorites count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"FilterTypeCell";
+    static NSString *CellIdentifier = @"favoritesCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if ( ! cell)
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     
-    cell.textLabel.text  = [[[[self.filterTypes objectAtIndex:indexPath.row] objectForKey:@"marker-symbol"] stringByReplacingOccurrencesOfString:@"-" withString:@" "] capitalizedString];
+    cell.textLabel.text  = [[[[self.favorites objectAtIndex:indexPath.row] objectForKey:@"marker-symbol"] stringByReplacingOccurrencesOfString:@"-" withString:@" "] capitalizedString];
     
     // draw slightly-cropped pin image for cell
     //
-    UIImage *pinImage = [[self.filterTypes objectAtIndex:indexPath.row] objectForKey:@"image"];
+    UIImage *pinImage = [[self.favorites objectAtIndex:indexPath.row] objectForKey:@"image"];
     
     float dimension = pinImage.size.height * 2/3;
     
@@ -90,7 +90,7 @@
     cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.bounds];
     cell.selectedBackgroundView.backgroundColor = self.navigationController.navigationBar.tintColor;
 
-    cell.accessoryType = ([[[self.filterTypes objectAtIndex:indexPath.row] objectForKey:@"selected"] boolValue] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone);
+    cell.accessoryType = ([[[self.favorites objectAtIndex:indexPath.row] objectForKey:@"selected"] boolValue] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone);
     
     return cell;
 }
@@ -101,9 +101,9 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    BOOL newState = ([[[self.filterTypes objectAtIndex:indexPath.row] objectForKey:@"selected"] boolValue] ? NO : YES);
+    BOOL newState = ([[[self.favorites objectAtIndex:indexPath.row] objectForKey:@"selected"] boolValue] ? NO : YES);
     
-    [[self.filterTypes objectAtIndex:indexPath.row] setObject:[NSNumber numberWithBool:newState] forKey:@"selected"];
+    [[self.favorites objectAtIndex:indexPath.row] setObject:[NSNumber numberWithBool:newState] forKey:@"selected"];
     
     [tableView cellForRowAtIndexPath:indexPath].accessoryType = (newState ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone);
 }
