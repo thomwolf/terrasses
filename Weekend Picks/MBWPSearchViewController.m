@@ -10,7 +10,7 @@
 
 @implementation MBWPSearchViewController
 
-@synthesize filterTypes;
+@synthesize favorites;
 @synthesize delegate;
 
 - (void)viewDidLoad
